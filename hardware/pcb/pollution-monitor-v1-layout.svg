@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 640" width="820" height="640">
+  <defs>
+    <marker id="arrowR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#555"/>
+    </marker>
+    <marker id="arrowL" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
+      <path d="M6,0 L6,6 L0,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="640" fill="#111827"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="820" height="48" fill="#1f2937"/>
+  <text x="410" y="20" text-anchor="middle" fill="#f9fafb" font-family="monospace" font-size="15" font-weight="bold">Monitor Contaminación — PCB Custom v1.0</text>
+  <text x="410" y="38" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">ESP32-C3-MINI-1  ·  SHT31  ·  BH1750  ·  ICS-43434  ·  MQ-2  ·  PPD42(ext)  ·  70 × 55 mm  ·  2 capas FR4</text>
+
+  <!-- ── PCB BOARD (700×550 px = 70×55 mm @ 10px/mm) ── -->
+  <g transform="translate(58,60)">
+
+    <!-- Board substrate -->
+    <rect x="0" y="0" width="700" height="550" rx="8" fill="#14532d" stroke="#16a34a" stroke-width="3"/>
+    <!-- Inner courtyard dashed -->
+    <rect x="5" y="5" width="690" height="540" rx="6" fill="none" stroke="#166534" stroke-width="1" stroke-dasharray="10,5"/>
+
+    <!-- Mounting holes -->
+    <circle cx="20" cy="20" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="20" cy="20" r="2.5" fill="#6b7280"/>
+    <circle cx="680" cy="20" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="680" cy="20" r="2.5" fill="#6b7280"/>
+    <circle cx="20" cy="530" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="20" cy="530" r="2.5" fill="#6b7280"/>
+    <circle cx="680" cy="530" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="680" cy="530" r="2.5" fill="#6b7280"/>
+
+    <!-- ── POWER TRACES ── -->
+    <!-- +5V VBUS: USB-C → LDO input (thick red) -->
+    <polyline points="350,510 350,490 195,490 195,468" fill="none" stroke="#dc2626" stroke-width="4.5" opacity="0.8"/>
+    <!-- +3V3 rail: LDO output → distribution (thick amber) -->
+    <polyline points="178,428 178,195 510,195" fill="none" stroke="#d97706" stroke-width="3.5" opacity="0.75"/>
+    <!-- GND net (dark green, thin) -->
+    <polyline points="340,510 340,500 155,500 155,30" fill="none" stroke="#15803d" stroke-width="2.5" opacity="0.5"/>
+
+    <!-- ── SIGNAL TRACES ── -->
+    <!-- I2C SDA GPIO8 (cyan) -->
+    <polyline points="368,215 368,168 155,168 155,118" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="368,215 368,168 555,168 555,118" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.9" stroke-dasharray="7,3"/>
+    <!-- I2C SCL GPIO9 (blue) -->
+    <polyline points="380,215 380,178 145,178 145,128" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="380,215 380,178 565,178 565,128" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.9" stroke-dasharray="7,3"/>
+    <!-- I2S WS/SCK/SD GPIO4-6 (purple) -->
+    <polyline points="290,215 290,355 105,355 105,308" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="300,215 300,365 95,365 95,318" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="310,215 310,375 85,375 85,328" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.9"/>
+    <!-- ADC MQ-2 GPIO3 (orange) -->
+    <polyline points="458,215 458,355 600,355 600,315" fill="none" stroke="#fb923c" stroke-width="1.5" opacity="0.9"/>
+    <!-- PPD42 GPIO2 (green) -->
+    <polyline points="348,215 348,85" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.9"/>
+    <!-- UART GPIO20-21 (yellow) -->
+    <polyline points="475,215 475,155 648,155 648,205" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.85"/>
+    <!-- EN/RST line (red dashed) -->
+    <polyline points="330,430 128,430 128,480" fill="none" stroke="#f87171" stroke-width="1.5" opacity="0.85"/>
+    <!-- BOOT line (blue dashed) -->
+    <polyline points="330,440 568,440 568,480" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.85"/>
+
+    <!-- ══════════════════════════════════════════════
+         ESP32-C3-MINI-1  (center)  172×216 px
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(264,210)">
+      <!-- Module outline -->
+      <rect x="0" y="0" width="172" height="216" rx="5" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+      <!-- RF shield area -->
+      <rect x="6" y="6" width="160" height="172" rx="3" fill="#263f60" stroke="#4b8ee8" stroke-width="1"/>
+      <!-- Antenna cutout -->
+      <rect x="6" y="178" width="160" height="32" rx="2" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5,3"/>
+      <!-- Antenna symbol -->
+      <path d="M76,190 L86,178 L96,190 M70,196 L86,178 L102,196 M64,202 L86,178 L108,202" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+      <!-- Chip label -->
+      <text x="86" y="80" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="bold">ESP32-C3</text>
+      <text x="86" y="97" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="12">MINI-1</text>
+      <text x="86" y="115" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="9">WiFi · 4MB Flash · 22 GPIO</text>
+      <text x="86" y="130" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="9">LCSC C2838502 · ~$1.80</text>
+      <!-- Left pads (gold) -->
+      <rect x="-7" y="18" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="30" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="42" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="54" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="66" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="78" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="90" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="102" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="114" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="126" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="138" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <!-- Right pads -->
+      <rect x="169" y="18" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="30" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="42" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="54" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="66" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="78" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="90" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="102" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="114" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="126" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="138" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <!-- Left pin labels -->
+      <text x="-11" y="24" text-anchor="end" fill="#6ee7b7" font-family="monospace" font-size="7">GND</text>
+      <text x="-11" y="36" text-anchor="end" fill="#fde68a" font-family="monospace" font-size="7">3V3</text>
+      <text x="-11" y="48" text-anchor="end" fill="#4ade80" font-family="monospace" font-size="7">G2 PPD42</text>
+      <text x="-11" y="60" text-anchor="end" fill="#fb923c" font-family="monospace" font-size="7">G3 MQ2</text>
+      <text x="-11" y="72" text-anchor="end" fill="#c084fc" font-family="monospace" font-size="7">G4 I2S WS</text>
+      <text x="-11" y="84" text-anchor="end" fill="#c084fc" font-family="monospace" font-size="7">G5 I2S SCK</text>
+      <text x="-11" y="96" text-anchor="end" fill="#c084fc" font-family="monospace" font-size="7">G6 I2S SD</text>
+      <text x="-11" y="108" text-anchor="end" fill="#22d3ee" font-family="monospace" font-size="7">G8 SDA</text>
+      <text x="-11" y="120" text-anchor="end" fill="#60a5fa" font-family="monospace" font-size="7">G9 SCL</text>
+      <text x="-11" y="132" text-anchor="end" fill="#f87171" font-family="monospace" font-size="7">EN/RST</text>
+      <text x="-11" y="144" text-anchor="end" fill="#818cf8" font-family="monospace" font-size="7">G20 RXD</text>
+      <!-- Right pin labels -->
+      <text x="183" y="24" fill="#6ee7b7" font-family="monospace" font-size="7">GND</text>
+      <text x="183" y="36" fill="#fde68a" font-family="monospace" font-size="7">3V3</text>
+      <text x="183" y="48" fill="#94a3b8" font-family="monospace" font-size="7">NC</text>
+      <text x="183" y="60" fill="#94a3b8" font-family="monospace" font-size="7">NC</text>
+      <text x="183" y="72" fill="#94a3b8" font-family="monospace" font-size="7">MTMS</text>
+      <text x="183" y="84" fill="#94a3b8" font-family="monospace" font-size="7">MTDI</text>
+      <text x="183" y="96" fill="#94a3b8" font-family="monospace" font-size="7">MTCK</text>
+      <text x="183" y="108" fill="#94a3b8" font-family="monospace" font-size="7">MTDO</text>
+      <text x="183" y="120" fill="#94a3b8" font-family="monospace" font-size="7">NC</text>
+      <text x="183" y="132" fill="#94a3b8" font-family="monospace" font-size="7">NC</text>
+      <text x="183" y="144" fill="#fbbf24" font-family="monospace" font-size="7">G21 TXD</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         USB-C CONNECTOR  (bottom center)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(300,490)">
+      <rect x="0" y="0" width="100" height="46" rx="10" fill="#78716c" stroke="#a8a29e" stroke-width="1.5"/>
+      <rect x="7" y="7" width="86" height="32" rx="8" fill="#292524" stroke="#57534e" stroke-width="1"/>
+      <ellipse cx="50" cy="23" rx="22" ry="11" fill="#1c1917" stroke="#44403c" stroke-width="1"/>
+      <text x="50" y="62" text-anchor="middle" fill="#d1d5db" font-family="monospace" font-size="10" font-weight="bold">USB-C  5V</text>
+      <text x="50" y="74" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8">GCT USB4105 · C2765186</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         AMS1117-3.3V LDO  (bottom-left quadrant)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(150,440)">
+      <rect x="0" y="0" width="62" height="34" rx="3" fill="#451a03" stroke="#92400e" stroke-width="1.5"/>
+      <rect x="3" y="3" width="56" height="28" rx="2" fill="#350d00" stroke="#6b2a00" stroke-width="1"/>
+      <text x="31" y="15" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="9" font-weight="bold">AMS1117</text>
+      <text x="31" y="26" text-anchor="middle" fill="#d97706" font-family="monospace" font-size="8">3.3V LDO</text>
+      <!-- SOT-223 pads -->
+      <rect x="-6" y="5" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-6" y="15" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-6" y="25" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="60" y="10" width="8" height="14" rx="1" fill="#ca8a04"/>
+      <text x="31" y="48" text-anchor="middle" fill="#78716c" font-family="monospace" font-size="8">C6186 · ~$0.15</text>
+    </g>
+
+    <!-- Bypass caps LDO -->
+    <g transform="translate(130,395)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">10µF</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">C1</text>
+    </g>
+    <g transform="translate(156,395)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">100n</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">C2</text>
+    </g>
+    <g transform="translate(218,395)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">10µF</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">C3</text>
+    </g>
+    <g transform="translate(244,395)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">100n</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">C4</text>
+    </g>
+
+    <!-- ESP32 bypass caps -->
+    <g transform="translate(238,170)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">100n</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">C5</text>
+    </g>
+    <g transform="translate(264,170)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#16a34a" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">10µF</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">C6</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         SHT31-DIS  (top-left, air exposure corner)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(95,38)">
+      <!-- Perforated mesh pattern for air flow -->
+      <rect x="-3" y="-3" width="86" height="78" rx="4" fill="none" stroke="#0e4429" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="0" y="0" width="80" height="72" rx="3" fill="#0c2a3a" stroke="#0e7490" stroke-width="1.5"/>
+      <rect x="4" y="4" width="72" height="64" rx="2" fill="#082030" stroke="#0891b2" stroke-width="1"/>
+      <!-- DFN-8 die area -->
+      <rect x="18" y="15" width="44" height="42" rx="2" fill="#0e3a50" stroke="#0ea5e9" stroke-width="1"/>
+      <text x="40" y="33" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">SHT31</text>
+      <text x="40" y="45" text-anchor="middle" fill="#0ea5e9" font-family="monospace" font-size="8">Temp · Hum</text>
+      <!-- DFN pads top/bottom row -->
+      <rect x="4" y="15" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="4" y="24" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="4" y="33" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="4" y="42" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="15" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="24" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="33" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="42" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <text x="40" y="82" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C2943854 · ~$2.00</text>
+      <text x="40" y="92" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">I2C 0x44 · ±0.3°C</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         BH1750FVI  (top-right, light window)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(515,38)">
+      <!-- Light window indicator -->
+      <rect x="-3" y="-3" width="86" height="78" rx="4" fill="none" stroke="#422006" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="0" y="0" width="80" height="72" rx="3" fill="#1c1a05" stroke="#854d0e" stroke-width="1.5"/>
+      <rect x="4" y="4" width="72" height="64" rx="2" fill="#120f00" stroke="#713f12" stroke-width="1"/>
+      <!-- SOP-8 die with photodiode symbol -->
+      <rect x="18" y="12" width="44" height="48" rx="2" fill="#1c1500" stroke="#a16207" stroke-width="1"/>
+      <circle cx="40" cy="28" r="9" fill="#271c00" stroke="#ca8a04" stroke-width="1"/>
+      <!-- Sun rays -->
+      <line x1="40" y1="14" x2="40" y2="10" stroke="#fde68a" stroke-width="1.5"/>
+      <line x1="47" y1="17" x2="50" y2="14" stroke="#fde68a" stroke-width="1.5"/>
+      <line x1="33" y1="17" x2="30" y2="14" stroke="#fde68a" stroke-width="1.5"/>
+      <line x1="50" y1="23" x2="54" y2="22" stroke="#fde68a" stroke-width="1.5"/>
+      <line x1="30" y1="23" x2="26" y2="22" stroke="#fde68a" stroke-width="1.5"/>
+      <line x1="36" y1="24" x2="44" y2="24" stroke="#eab308" stroke-width="1"/>
+      <text x="40" y="45" text-anchor="middle" fill="#eab308" font-family="monospace" font-size="10" font-weight="bold">BH1750</text>
+      <text x="40" y="55" text-anchor="middle" fill="#ca8a04" font-family="monospace" font-size="8">Luz/Lux</text>
+      <!-- SOP-8 pads -->
+      <rect x="4" y="15" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="4" y="24" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="4" y="33" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="4" y="42" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="15" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="24" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="33" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="66" y="42" width="10" height="5" rx="1" fill="#ca8a04"/>
+      <text x="40" y="82" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C78960 · ~$0.35</text>
+      <text x="40" y="92" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">I2C 0x23 · 1–65535 lux</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         ICS-43434 MEMS Mic  (left edge)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(35,260)">
+      <!-- Acoustic port hole -->
+      <circle cx="22" cy="42" r="18" fill="#050a05" stroke="#15803d" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <circle cx="22" cy="42" r="7" fill="#000" stroke="#166534" stroke-width="1"/>
+      <text x="22" y="68" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="7">∅3mm</text>
+      <!-- Chip body -->
+      <rect x="48" y="22" width="52" height="44" rx="2" fill="#1e0a2e" stroke="#7e22ce" stroke-width="1.5"/>
+      <rect x="51" y="25" width="46" height="38" rx="1" fill="#120618" stroke="#6b21a8" stroke-width="1"/>
+      <text x="74" y="39" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="9" font-weight="bold">ICS-43434</text>
+      <text x="74" y="50" text-anchor="middle" fill="#9333ea" font-family="monospace" font-size="8">MEMS Mic</text>
+      <text x="74" y="60" text-anchor="middle" fill="#7e22ce" font-family="monospace" font-size="7">I2S · -26dBFS</text>
+      <!-- LGA pads -->
+      <rect x="48" y="25" width="6" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="48" y="33" width="6" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="48" y="41" width="6" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="94" y="25" width="6" height="5" rx="1" fill="#ca8a04"/>
+      <rect x="94" y="33" width="6" height="5" rx="1" fill="#ca8a04"/>
+      <text x="74" y="80" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C2069979 · ~$1.50</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         MQ-2 SOLDER PADS  (right side, ventilation)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(578,255)">
+      <!-- Ventilation area -->
+      <rect x="0" y="0" width="102" height="82" rx="4" fill="#1a0a00" stroke="#78350f" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <!-- Circular sensor outline (where bare chip sits) -->
+      <circle cx="51" cy="41" r="24" fill="#1c0d00" stroke="#92400e" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <!-- 4 solder pads at corners -->
+      <rect x="8" y="10" width="18" height="12" rx="2" fill="#ca8a04"/>
+      <rect x="76" y="10" width="18" height="12" rx="2" fill="#ca8a04"/>
+      <rect x="8" y="60" width="18" height="12" rx="2" fill="#ca8a04"/>
+      <rect x="76" y="60" width="18" height="12" rx="2" fill="#ca8a04"/>
+      <text x="51" y="37" text-anchor="middle" fill="#f97316" font-family="monospace" font-size="11" font-weight="bold">MQ-2</text>
+      <text x="51" y="49" text-anchor="middle" fill="#c2410c" font-family="monospace" font-size="8">Gas ppm · ADC</text>
+      <text x="51" y="100" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">Bare chip ~$1.20</text>
+      <text x="51" y="111" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">Ventilación necesaria</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         JST PH-5  PPD42 CONNECTOR  (top center)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(298,25)">
+      <rect x="0" y="0" width="104" height="42" rx="3" fill="#1a1a00" stroke="#6b6b00" stroke-width="1.5"/>
+      <!-- 5 pin housings -->
+      <rect x="4" y="7" width="16" height="28" rx="2" fill="#111" stroke="#444" stroke-width="1"/>
+      <rect x="23" y="7" width="16" height="28" rx="2" fill="#111" stroke="#444" stroke-width="1"/>
+      <rect x="42" y="7" width="16" height="28" rx="2" fill="#111" stroke="#444" stroke-width="1"/>
+      <rect x="61" y="7" width="16" height="28" rx="2" fill="#111" stroke="#444" stroke-width="1"/>
+      <rect x="80" y="7" width="16" height="28" rx="2" fill="#111" stroke="#444" stroke-width="1"/>
+      <!-- Contacts -->
+      <circle cx="12" cy="21" r="5" fill="#ca8a04"/>
+      <circle cx="31" cy="21" r="5" fill="#ca8a04"/>
+      <circle cx="50" cy="21" r="5" fill="#ca8a04"/>
+      <circle cx="69" cy="21" r="5" fill="#ca8a04"/>
+      <circle cx="88" cy="21" r="5" fill="#ca8a04"/>
+      <text x="52" y="55" text-anchor="middle" fill="#a3a302" font-family="monospace" font-size="9" font-weight="bold">JST PH-5 → PPD42</text>
+      <text x="52" y="65" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C157926 · cable 50cm+</text>
+      <!-- External sensor arrow -->
+      <line x1="52" y1="0" x2="52" y2="-10" stroke="#a3a302" stroke-width="1.5" marker-end="url(#arrowR)"/>
+      <text x="52" y="-14" text-anchor="middle" fill="#a3a302" font-family="monospace" font-size="7">PPD42 externo</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         RESET BUTTON  SW1  (bottom-left)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(88,485)">
+      <rect x="0" y="0" width="38" height="38" rx="4" fill="#1c1c1c" stroke="#4b5563" stroke-width="1.5"/>
+      <circle cx="19" cy="19" r="12" fill="#111" stroke="#dc2626" stroke-width="2"/>
+      <circle cx="19" cy="19" r="6" fill="#dc2626"/>
+      <text x="19" y="48" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="9" font-weight="bold">RESET</text>
+      <text x="19" y="58" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="7">SW1 · C318884</text>
+    </g>
+
+    <!-- RESET pull-up R4 10k -->
+    <g transform="translate(128,460)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#15803d" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">10kΩ</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">R4</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         BOOT BUTTON  SW2  (bottom-right)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(574,485)">
+      <rect x="0" y="0" width="38" height="38" rx="4" fill="#1c1c1c" stroke="#4b5563" stroke-width="1.5"/>
+      <circle cx="19" cy="19" r="12" fill="#111" stroke="#4f46e5" stroke-width="2"/>
+      <circle cx="19" cy="19" r="6" fill="#4f46e5"/>
+      <text x="19" y="48" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="9" font-weight="bold">BOOT</text>
+      <text x="19" y="58" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="7">SW2 · C318884</text>
+    </g>
+
+    <!-- BOOT pull-up R5 10k -->
+    <g transform="translate(552,460)">
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#15803d" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">10kΩ</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">R5</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         POWER LED + R3  (right of USB-C)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(425,500)">
+      <!-- R3 1kΩ -->
+      <rect x="0" y="0" width="22" height="13" rx="2" fill="#14532d" stroke="#15803d" stroke-width="1"/>
+      <text x="11" y="10" text-anchor="middle" fill="#86efac" font-family="monospace" font-size="7">1kΩ</text>
+      <text x="11" y="22" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="6">R3</text>
+      <!-- LED -->
+      <polygon points="36,0 36,13 50,6.5" fill="#14532d" stroke="#16a34a" stroke-width="1.5"/>
+      <line x1="50" y1="0" x2="50" y2="13" stroke="#16a34a" stroke-width="2"/>
+      <!-- Glow -->
+      <circle cx="55" cy="6.5" r="5" fill="#22c55e" opacity="0.85"/>
+      <circle cx="55" cy="6.5" r="8" fill="#22c55e" opacity="0.2"/>
+      <text x="37" y="22" text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="7">PWR D1</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         UART HEADER  J3  (right edge)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(644,200)">
+      <rect x="0" y="0" width="32" height="58" rx="2" fill="#0f0f2a" stroke="#312e81" stroke-width="1.5"/>
+      <circle cx="16" cy="11" r="5" fill="#ca8a04"/>
+      <circle cx="16" cy="25" r="5" fill="#ca8a04"/>
+      <circle cx="16" cy="39" r="5" fill="#ca8a04"/>
+      <circle cx="16" cy="53" r="5" fill="#ca8a04"/>
+      <text x="-4" y="14" text-anchor="end" fill="#fde68a" font-family="monospace" font-size="7">3V3</text>
+      <text x="-4" y="28" text-anchor="end" fill="#6ee7b7" font-family="monospace" font-size="7">GND</text>
+      <text x="-4" y="42" text-anchor="end" fill="#fbbf24" font-family="monospace" font-size="7">TX</text>
+      <text x="-4" y="56" text-anchor="end" fill="#fbbf24" font-family="monospace" font-size="7">RX</text>
+      <!-- Rotated label -->
+      <text x="52" y="29" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="8" transform="rotate(90,52,29)">UART DEBUG</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         RAIL LABELS
+         ══════════════════════════════════════════════ -->
+    <text x="180" y="190" fill="#d97706" font-family="monospace" font-size="9" font-weight="bold">+3V3 ─────────────────────────────────</text>
+    <text x="355" y="485" fill="#dc2626" font-family="monospace" font-size="9">+5V VBUS</text>
+    <text x="490" y="195" fill="#6b7280" font-family="monospace" font-size="8">I2C bus</text>
+
+    <!-- ══════════════════════════════════════════════
+         DIMENSION ANNOTATIONS
+         ══════════════════════════════════════════════ -->
+    <!-- Width -->
+    <line x1="0" y1="-13" x2="700" y2="-13" stroke="#4b5563" stroke-width="1"/>
+    <line x1="0" y1="-18" x2="0" y2="-8" stroke="#4b5563" stroke-width="1"/>
+    <line x1="700" y1="-18" x2="700" y2="-8" stroke="#4b5563" stroke-width="1"/>
+    <text x="350" y="-17" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">70 mm</text>
+    <!-- Height -->
+    <line x1="-13" y1="0" x2="-13" y2="550" stroke="#4b5563" stroke-width="1"/>
+    <line x1="-18" y1="0" x2="-8" y2="0" stroke="#4b5563" stroke-width="1"/>
+    <line x1="-18" y1="550" x2="-8" y2="550" stroke="#4b5563" stroke-width="1"/>
+    <text x="-22" y="275" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11" transform="rotate(-90,-22,275)">55 mm</text>
+
+  </g>
+
+  <!-- ══════════════════════════════════════════════
+       LEGEND
+       ══════════════════════════════════════════════ -->
+  <g transform="translate(58,625)">
+    <text x="0" y="0" fill="#9ca3af" font-family="monospace" font-size="9" font-weight="bold">Trazas:</text>
+    <line x1="60" y1="-4" x2="90" y2="-4" stroke="#d97706" stroke-width="3.5"/>
+    <text x="94" y="0" fill="#d97706" font-family="monospace" font-size="9">+3V3</text>
+    <line x1="135" y1="-4" x2="165" y2="-4" stroke="#dc2626" stroke-width="4.5"/>
+    <text x="169" y="0" fill="#dc2626" font-family="monospace" font-size="9">+5V</text>
+    <line x1="204" y1="-4" x2="234" y2="-4" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="238" y="0" fill="#22d3ee" font-family="monospace" font-size="9">I2C</text>
+    <line x1="270" y1="-4" x2="300" y2="-4" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="304" y="0" fill="#a855f7" font-family="monospace" font-size="9">I2S</text>
+    <line x1="336" y1="-4" x2="366" y2="-4" stroke="#fb923c" stroke-width="1.5"/>
+    <text x="370" y="0" fill="#fb923c" font-family="monospace" font-size="9">ADC</text>
+    <line x1="406" y1="-4" x2="436" y2="-4" stroke="#4ade80" stroke-width="1.5"/>
+    <text x="440" y="0" fill="#4ade80" font-family="monospace" font-size="9">GPIO digital</text>
+    <line x1="528" y1="-4" x2="558" y2="-4" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="562" y="0" fill="#fbbf24" font-family="monospace" font-size="9">UART</text>
+    <line x1="604" y1="-4" x2="634" y2="-4" stroke="#15803d" stroke-width="2.5" opacity="0.6"/>
+    <text x="638" y="0" fill="#6b7280" font-family="monospace" font-size="9">GND</text>
+    <text x="690" y="0" fill="#374151" font-family="monospace" font-size="8">JLCPCB · 2 layers · FR4</text>
+  </g>
+</svg>
