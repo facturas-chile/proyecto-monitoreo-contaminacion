@@ -1,0 +1,47 @@
+Ref,Componente,Valor,Footprint,LCSC_Part,Descripcion,Precio_Unit_USD,Qty_10u_USD,Qty_50u_USD,Qty_100u_USD
+U2,ESP32-C3-MINI-1,N/A,RF_Module:ESP32-C3-MINI-1,C2838502,MCU WiFi integrado 4MB Flash 22GPIO,1.80,18.00,15.00,13.50
+U3,SHT31-DIS,N/A,Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm,C2943854,Sensor temperatura/humedad I2C ±0.3°C,2.00,20.00,16.00,13.00
+U4,BH1750FVI,N/A,Package_SO:SOP-8_3.76x4.94mm_P1.27mm,C78960,Sensor luz lux I2C 1-65535 lux,0.35,3.50,2.80,2.30
+U5,ICS-43434,N/A,Package_LCC:ICS-43434_LGA-5,C2069979,Microfono MEMS I2S -26dBFS SNR 65dB,1.50,15.00,11.50,9.50
+U1,AMS1117-3.3,N/A,Package_TO_SOT_SMD:SOT-223-3_TabPin2,C6186,Regulador LDO 3.3V 800mA,0.15,1.50,1.10,0.90
+J1,GCT_USB4105-GF-A,N/A,Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A,C2765186,Conector USB-C 2.0 receptaculo vertical,0.40,4.00,3.20,2.80
+J2,JST_PH_B5B-PH-K,N/A,Connector_JST:JST_PH_B5B-PH-K_1x05_P2.00mm,C157926,Conector JST PH 5-pin para PPD42,0.25,2.50,1.80,1.40
+J3,PinHeader_1x04,N/A,Connector_PinHeader_2.54mm:PinHeader_1x04,C2337,Header 4-pin 2.54mm UART debug,0.10,1.00,0.70,0.55
+J4,PinHeader_1x04,N/A,Connector_PinHeader_2.54mm:PinHeader_1x04,C2337,Header 4-pin 2.54mm MQ-2 pads,0.10,1.00,0.70,0.55
+SW1,SW_Push_6x6mm,N/A,Button_Switch_SMD:SW_Push_1P1T_NO_2.5x1.6mm,C318884,Boton SMD reset,0.05,0.50,0.35,0.28
+SW2,SW_Push_6x6mm,N/A,Button_Switch_SMD:SW_Push_1P1T_NO_2.5x1.6mm,C318884,Boton SMD boot/flash,0.05,0.50,0.35,0.28
+D1,LED_GREEN_0402,N/A,LED_SMD:LED_0402_1005Metric,C72041,LED verde 0402 indicador power,0.02,0.20,0.14,0.11
+C1,C_0805,10uF/16V,Capacitor_SMD:C_0805_2012Metric,C15850,Cap electrolitico entrada LDO,0.03,0.30,0.22,0.18
+C2,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass entrada LDO,0.01,0.10,0.07,0.05
+C3,C_0805,10uF/16V,Capacitor_SMD:C_0805_2012Metric,C15850,Cap electrolitico salida LDO,0.03,0.30,0.22,0.18
+C4,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass salida LDO,0.01,0.10,0.07,0.05
+C5,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass ESP32 VDD3P3,0.01,0.10,0.07,0.05
+C6,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass ESP32 VDD3P3_RTC,0.01,0.10,0.07,0.05
+C7,C_0805,10uF/16V,Capacitor_SMD:C_0805_2012Metric,C15850,Cap bulk ESP32,0.03,0.30,0.22,0.18
+C8,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass SHT31 VDD,0.01,0.10,0.07,0.05
+C9,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass BH1750 VCC,0.01,0.10,0.07,0.05
+C10,C_0402,100nF/16V,Capacitor_SMD:C_0402_1005Metric,C1525,Cap bypass ICS-43434 VDD,0.01,0.10,0.07,0.05
+R1,R_0402,5.1k,Resistor_SMD:R_0402_1005Metric,C25905,Pull-down USB-C CC1,0.01,0.10,0.07,0.05
+R2,R_0402,5.1k,Resistor_SMD:R_0402_1005Metric,C25905,Pull-down USB-C CC2,0.01,0.10,0.07,0.05
+R3,R_0402,1k,Resistor_SMD:R_0402_1005Metric,C11702,Resistencia serie LED power,0.01,0.10,0.07,0.05
+R4,R_0402,10k,Resistor_SMD:R_0402_1005Metric,C25744,Pull-up EN/RESET ESP32,0.01,0.10,0.07,0.05
+R5,R_0402,10k,Resistor_SMD:R_0402_1005Metric,C25744,Pull-up GPIO9/BOOT ESP32,0.01,0.10,0.07,0.05
+R6,R_0402,4.7k,Resistor_SMD:R_0402_1005Metric,C25900,Pull-up I2C SDA,0.01,0.10,0.07,0.05
+R7,R_0402,4.7k,Resistor_SMD:R_0402_1005Metric,C25900,Pull-up I2C SCL,0.01,0.10,0.07,0.05
+R8,R_0402,10k,Resistor_SMD:R_0402_1005Metric,C25744,Resistencia carga MQ-2,0.01,0.10,0.07,0.05
+R9,R_0402,10k,Resistor_SMD:R_0402_1005Metric,C25744,Divisor voltaje MQ-2 (serie),0.01,0.10,0.07,0.05
+R10,R_0402,22k,Resistor_SMD:R_0402_1005Metric,C31850,Divisor voltaje MQ-2 (shunt),0.01,0.10,0.07,0.05
+R11,R_0402,10k,Resistor_SMD:R_0402_1005Metric,C25744,Pull-up Vout PPD42,0.01,0.10,0.07,0.05
+,,,,,,,,
+EXTERNO,,,,,,,,
+PPD42_MOD,Sensor polvo PPD42,N/A,N/A,N/A,Modulo externo sensor PM10 (Shinyei),8.00,80.00,60.00,50.00
+MQ2_CHIP,MQ-2 bare chip,N/A,N/A,N/A,Sensor gas bare chip (soldar a pads J4),1.20,12.00,9.50,8.00
+,,,,,,,,
+PCB,,,,,,,,
+PCB_FAB,JLCPCB 2 capas FR4,70x55mm,N/A,N/A,Fabricacion PCB JLCPCB (10u min),0.80,8.00,4.50,3.20
+,,,,,,,,
+RESUMEN COSTOS,,,,,,,,
+TOTAL_PCB+SMD,Solo componentes PCB,,,,USD por unidad,9.05,90.50,68.00,55.00
+TOTAL_EXTERNO,PPD42 + MQ-2 externo,,,,USD por unidad,9.20,92.00,69.50,58.00
+TOTAL_COMPLETO,Todo incluyendo PCB,,,,USD por unidad,17.25,172.50,129.00,107.00
+AHORRO_VS_ACTUAL,Sistema actual ~$80-100 por nodo,,,,Ahorro estimado,~78%,vs $80-100 cada uno,,

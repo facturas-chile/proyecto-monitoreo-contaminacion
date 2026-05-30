@@ -1,0 +1,450 @@
+(kicad_sch (version 20230121) (generator "eeschema")
+
+  (paper "A3")
+
+  (lib_symbols
+    (symbol "Device:C" (pin_numbers (hide)) (pin_names (offset 0.254) (hide)) (in_bom yes) (on_board yes)
+      (property "Reference" "C" (at 0.635 0.508 0) (effects (font (size 1.27 1.27)) (justify left)))
+      (property "Value" "C" (at 0.635 -1.016 0) (effects (font (size 1.27 1.27)) (justify left)))
+      (property "Footprint" "" (at 0.9652 -3.81 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "~" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "C_0_1"
+        (polyline (pts (xy -1.524 -0.508) (xy 1.524 -0.508)) (stroke (width 0.3302)) (fill (type none)))
+        (polyline (pts (xy -1.524 0.508) (xy 1.524 0.508)) (stroke (width 0.3302)) (fill (type none)))
+        (pin passive line (at 0 3.81 270) (length 3.302) (name "~" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+        (pin passive line (at 0 -3.81 90) (length 3.302) (name "~" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "Device:R" (pin_numbers (hide)) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "R" (at 1.905 0 0) (effects (font (size 1.27 1.27)) (justify left)))
+      (property "Value" "R" (at 1.905 -2.54 0) (effects (font (size 1.27 1.27)) (justify left)))
+      (property "Footprint" "" (at -1.778 -3.429 90) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "~" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "R_0_1"
+        (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.254)) (fill (type none)))
+        (pin passive line (at 0 3.81 270) (length 1.27) (name "~" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+        (pin passive line (at 0 -3.81 90) (length 1.27) (name "~" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "Device:LED" (pin_numbers (hide)) (pin_names (offset 1.016) (hide)) (in_bom yes) (on_board yes)
+      (property "Reference" "D" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+      (property "Value" "LED" (at 0 -2.54 0) (effects (font (size 1.27 1.27))))
+      (property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "~" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "LED_0_1"
+        (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254)) (fill (type none)))
+        (polyline (pts (xy -1.27 0) (xy 1.27 0)) (stroke (width 0.254)) (fill (type none)))
+        (polyline (pts (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27) (xy 1.27 -1.27)) (stroke (width 0.254)) (fill (type none)))
+        (pin passive line (at -3.81 0 0) (length 2.54) (name "K" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+        (pin passive line (at 3.81 0 180) (length 2.54) (name "A" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "Switch:SW_Push" (in_bom yes) (on_board yes)
+      (property "Reference" "SW" (at 1.27 1.905 0) (effects (font (size 1.27 1.27)) (justify left)))
+      (property "Value" "SW_Push" (at 1.27 0.635 0) (effects (font (size 1.27 1.27)) (justify left)))
+      (property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "~" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "SW_Push_0_1"
+        (circle (center -2.032 0) (radius 0.508) (stroke (width 0)) (fill (type none)))
+        (circle (center 2.032 0) (radius 0.508) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy -1.524 0) (xy 1.524 0)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy -2.54 1.778) (xy 2.54 1.778)) (stroke (width 0)) (fill (type none)))
+        (pin passive line (at -3.81 0 0) (length 1.27) (name "A" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+        (pin passive line (at 3.81 0 180) (length 1.27) (name "B" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "power:GND" (power) (pin_names (offset 0)) (in_bom no) (on_board no)
+      (property "Reference" "#PWR" (at 0 -6.35 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Value" "GND" (at 0 -3.81 0) (effects (font (size 1.27 1.27))))
+      (property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "GND_0_1"
+        (polyline (pts (xy 0 0) (xy 0 -1.27)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 1.27 -1.27) (xy -1.27 -1.27)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 0.762 -1.905) (xy -0.762 -1.905)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 0.254 -2.54) (xy -0.254 -2.54)) (stroke (width 0)) (fill (type none)))
+        (pin power_in line (at 0 0 270) (length 0) (name "GND" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "power:+3V3" (power) (pin_names (offset 0)) (in_bom no) (on_board no)
+      (property "Reference" "#PWR" (at 0 3.81 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Value" "+3V3" (at 0 3.556 0) (effects (font (size 1.27 1.27))))
+      (property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "+3V3_0_1"
+        (polyline (pts (xy 0 0) (xy 0 1.27)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 0 1.27) (xy -0.762 0.508)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 0 1.27) (xy 0.762 0.508)) (stroke (width 0)) (fill (type none)))
+        (pin power_in line (at 0 0 270) (length 0) (name "+3V3" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+      )
+    )
+    (symbol "power:+5V" (power) (pin_names (offset 0)) (in_bom no) (on_board no)
+      (property "Reference" "#PWR" (at 0 3.81 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Value" "+5V" (at 0 3.556 0) (effects (font (size 1.27 1.27))))
+      (property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (property "Datasheet" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide)))
+      (symbol "+5V_0_1"
+        (polyline (pts (xy 0 0) (xy 0 1.27)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 0 1.27) (xy -0.762 0.508)) (stroke (width 0)) (fill (type none)))
+        (polyline (pts (xy 0 1.27) (xy 0.762 0.508)) (stroke (width 0)) (fill (type none)))
+        (pin power_in line (at 0 0 270) (length 0) (name "+5V" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27)))))
+      )
+    )
+  )
+
+  (title_block
+    (title "Monitor Contaminacion - PCB Custom v1.0")
+    (date "2026-05-30")
+    (rev "1.0")
+    (company "Emprendimientos Varios IAV")
+    (comment 1 "ESP32-C3-MINI-1 + SHT31 + BH1750 + ICS-43434 + MQ-2 + PPD42(ext)")
+    (comment 2 "Disenio: 2 capas, 70x55mm, JLCPCB")
+    (comment 3 "CTO Agent IAV-8")
+  )
+
+  ;; =====================================================
+  ;; BLOQUE 1: CONECTOR USB-C Y ALIMENTACION
+  ;; =====================================================
+
+  ;; USB-C Connector (GCT USB4105-GF-A)
+  (symbol (lib_id "Connector:USB_C_Receptacle_USB2.0") (at 50.8 40.64 0) (unit 1)
+    (property "Reference" "J1" (at 50.8 33.02 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "USB_C_2.0_GCT_USB4105" (at 50.8 35.56 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_Vertical" (at 50.8 38.1 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C2765186" (at 50.8 40.64 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://gct.co/files/drawings/usb4105.pdf" (at 50.8 43.18 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "GND" (at 45.72 40.64 0))
+    (pin "VBUS" (at 55.88 40.64 180))
+    (pin "D-" (at 45.72 43.18 0))
+    (pin "D+" (at 45.72 45.72 0))
+    (pin "CC1" (at 45.72 48.26 0))
+    (pin "CC2" (at 45.72 50.8 0))
+    (pin "Shield" (at 50.8 53.34 270))
+  )
+
+  ;; Resistencias CC para USB-C (5.1k a GND = 5V host)
+  ;; R_CC1: 5.1k entre CC1 y GND
+  (symbol (lib_id "Device:R") (at 33.02 48.26 90) (unit 1)
+    (property "Reference" "R1" (at 33.02 46.736 90) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "5.1k" (at 33.02 48.768 90) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 33.02 48.26 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25905" (at 33.02 48.26 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; R_CC2: 5.1k entre CC2 y GND
+  (symbol (lib_id "Device:R") (at 33.02 50.8 90) (unit 1)
+    (property "Reference" "R2" (at 33.02 49.276 90) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "5.1k" (at 33.02 51.308 90) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 33.02 50.8 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25905" (at 33.02 50.8 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Regulador LDO AMS1117-3.3V
+  (symbol (lib_id "Regulator_Linear:AMS1117-3.3") (at 88.9 40.64 0) (unit 1)
+    (property "Reference" "U1" (at 88.9 33.02 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "AMS1117-3.3" (at 88.9 35.56 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2" (at 88.9 38.1 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C6186" (at 88.9 40.64 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://www.advanced-monolithic.com/pdf/ds1117.pdf" (at 88.9 43.18 0) (effects (font (size 1.27 1.27)) (hide)))
+  )
+
+  ;; Capacitor de entrada LDO: 10uF
+  (symbol (lib_id "Device:C") (at 76.2 40.64 0) (unit 1)
+    (property "Reference" "C1" (at 77.47 39.116 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10uF" (at 77.47 40.386 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 76.2 40.64 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C15850" (at 76.2 40.64 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Capacitor bypass 100nF entrada LDO
+  (symbol (lib_id "Device:C") (at 76.2 45.72 0) (unit 1)
+    (property "Reference" "C2" (at 77.47 44.196 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 77.47 45.466 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 76.2 45.72 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 76.2 45.72 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Capacitor de salida LDO: 10uF
+  (symbol (lib_id "Device:C") (at 101.6 40.64 0) (unit 1)
+    (property "Reference" "C3" (at 102.87 39.116 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10uF" (at 102.87 40.386 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 101.6 40.64 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C15850" (at 101.6 40.64 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Capacitor bypass 100nF salida LDO
+  (symbol (lib_id "Device:C") (at 101.6 45.72 0) (unit 1)
+    (property "Reference" "C4" (at 102.87 44.196 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 102.87 45.466 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 101.6 45.72 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 101.6 45.72 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; LED Power (verde)
+  (symbol (lib_id "Device:LED") (at 114.3 38.1 0) (unit 1)
+    (property "Reference" "D1" (at 114.3 35.56 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_GREEN" (at 114.3 37.084 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "LED_SMD:LED_0402_1005Metric" (at 114.3 39.624 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C72041" (at 114.3 38.1 0) (effects (font (size 1.27 1.27)) (hide)))
+  )
+
+  ;; Resistencia LED power 1k
+  (symbol (lib_id "Device:R") (at 122.047 38.1 0) (unit 1)
+    (property "Reference" "R3" (at 122.047 36.576 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "1k" (at 122.047 37.846 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 122.047 38.1 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C11702" (at 122.047 38.1 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; BLOQUE 2: ESP32-C3-MINI-1 (MCU)
+  ;; =====================================================
+
+  (symbol (lib_id "RF_Module:ESP32-C3-MINI-1") (at 152.4 76.2 0) (unit 1)
+    (property "Reference" "U2" (at 152.4 43.18 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "ESP32-C3-MINI-1" (at 152.4 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "RF_Module:ESP32-C3-MINI-1" (at 152.4 48.26 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C2838502" (at 152.4 50.8 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf" (at 152.4 53.34 0) (effects (font (size 1.27 1.27)) (hide)))
+  )
+
+  ;; Bypass caps para ESP32 (4x 100nF + 1x 10uF)
+  (symbol (lib_id "Device:C") (at 127 55.88 0) (unit 1)
+    (property "Reference" "C5" (at 128.27 54.356 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 128.27 55.626 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 127 55.88 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 127 55.88 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  (symbol (lib_id "Device:C") (at 127 60.96 0) (unit 1)
+    (property "Reference" "C6" (at 128.27 59.436 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 128.27 60.706 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 127 60.96 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 127 60.96 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  (symbol (lib_id "Device:C") (at 127 66.04 0) (unit 1)
+    (property "Reference" "C7" (at 128.27 64.516 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10uF" (at 128.27 65.786 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 127 66.04 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C15850" (at 127 66.04 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Boton RESET (EN activo bajo)
+  (symbol (lib_id "Switch:SW_Push") (at 133.35 88.9 0) (unit 1)
+    (property "Reference" "SW1" (at 133.35 86.36 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "RESET" (at 133.35 88.9 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_2.5x1.6mm_Vertical" (at 133.35 91.44 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C318884" (at 133.35 88.9 0) (effects (font (size 1.27 1.27)) (hide)))
+  )
+
+  ;; Resistencia pull-up RESET 10k
+  (symbol (lib_id "Device:R") (at 127 83.82 0) (unit 1)
+    (property "Reference" "R4" (at 128.27 82.296 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10k" (at 128.27 83.566 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 127 83.82 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25744" (at 127 83.82 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Boton BOOT (GPIO9 activo bajo para flash mode)
+  (symbol (lib_id "Switch:SW_Push") (at 133.35 96.52 0) (unit 1)
+    (property "Reference" "SW2" (at 133.35 93.98 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BOOT" (at 133.35 96.52 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_2.5x1.6mm_Vertical" (at 133.35 99.06 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C318884" (at 133.35 96.52 0) (effects (font (size 1.27 1.27)) (hide)))
+  )
+
+  ;; Resistencia pull-up BOOT 10k (GPIO9 = HIGH normal = run)
+  (symbol (lib_id "Device:R") (at 127 91.44 0) (unit 1)
+    (property "Reference" "R5" (at 128.27 89.916 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10k" (at 128.27 91.186 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 127 91.44 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25744" (at 127 91.44 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Header UART debug (4-pin)
+  (symbol (lib_id "Connector:Conn_01x04_Pin") (at 185.42 53.34 0) (unit 1)
+    (property "Reference" "J3" (at 185.42 46.228 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "UART_DEBUG" (at 185.42 47.498 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" (at 185.42 53.34 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "+3V3" (at 180.34 53.34 0))
+    (pin "GND" (at 180.34 55.88 0))
+    (pin "TXD0/GPIO21" (at 180.34 58.42 0))
+    (pin "RXD0/GPIO20" (at 180.34 60.96 0))
+  )
+
+  ;; =====================================================
+  ;; BLOQUE 3: SENSORES I2C (SHT31 + BH1750)
+  ;; Ambos en bus I2C: SDA=GPIO8, SCL=GPIO9
+  ;; =====================================================
+
+  ;; SHT31-DIS (Temperatura y Humedad, I2C)
+  (symbol (lib_id "Sensor:SHT31-D") (at 215.9 60.96 0) (unit 1)
+    (property "Reference" "U3" (at 215.9 50.8 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SHT31-DIS" (at 215.9 53.34 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm_EP1.5x2.3mm" (at 215.9 55.88 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C2943854" (at 215.9 58.42 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://www.sensirion.com/fileadmin/user_upload/customers/sensirion/Dokumente/2_Humidity_Sensors_Datasheet/Sensirion_Humidity_Sensors_SHT3x_Datasheet_digital.pdf" (at 215.9 60.96 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "VDD" (at 210.82 53.34 0))
+    (pin "VSS" (at 210.82 55.88 0))
+    (pin "SDA" (at 210.82 58.42 0))
+    (pin "SCL" (at 210.82 60.96 0))
+    (pin "ALERT" (at 210.82 63.5 0))
+    (pin "nRESET" (at 210.82 66.04 0))
+    (pin "ADDR" (at 210.82 68.58 0))
+    (pin "EP" (at 210.82 71.12 0))
+  )
+
+  ;; Pull-up I2C 4.7k SDA
+  (symbol (lib_id "Device:R") (at 195.58 60.96 0) (unit 1)
+    (property "Reference" "R6" (at 196.85 59.436 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "4.7k" (at 196.85 60.706 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 195.58 60.96 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25900" (at 195.58 60.96 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Pull-up I2C 4.7k SCL
+  (symbol (lib_id "Device:R") (at 195.58 66.04 0) (unit 1)
+    (property "Reference" "R7" (at 196.85 64.516 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "4.7k" (at 196.85 65.786 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 195.58 66.04 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25900" (at 195.58 66.04 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Bypass cap SHT31 100nF
+  (symbol (lib_id "Device:C") (at 203.2 53.34 0) (unit 1)
+    (property "Reference" "C8" (at 204.47 51.816 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 204.47 53.086 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 203.2 53.34 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 203.2 53.34 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; BH1750FVI (Sensor de luz, I2C)
+  (symbol (lib_id "Sensor:BH1750FVI") (at 215.9 99.06 0) (unit 1)
+    (property "Reference" "U4" (at 215.9 88.9 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BH1750FVI" (at 215.9 91.44 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOP-8_3.76x4.94mm_P1.27mm" (at 215.9 93.98 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C78960" (at 215.9 96.52 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://www.mouser.com/datasheet/2/348/bh1750fvi-e-186247.pdf" (at 215.9 99.06 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "VCC" (at 210.82 91.44 0))
+    (pin "GND" (at 210.82 93.98 0))
+    (pin "SDA" (at 210.82 96.52 0))
+    (pin "SCL" (at 210.82 99.06 0))
+    (pin "ADDR" (at 210.82 101.6 0))
+    (pin "DVI" (at 210.82 104.14 0))
+    (pin "EP" (at 210.82 106.68 0))
+  )
+
+  ;; Bypass cap BH1750 100nF
+  (symbol (lib_id "Device:C") (at 203.2 91.44 0) (unit 1)
+    (property "Reference" "C9" (at 204.47 89.916 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 204.47 91.186 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 203.2 91.44 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 203.2 91.44 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; BLOQUE 4: MICROFONO MEMS ICS-43434 (I2S)
+  ;; I2S: WS=GPIO4, SCK=GPIO5, SD=GPIO6
+  ;; =====================================================
+
+  (symbol (lib_id "Audio:ICS-43434") (at 215.9 134.62 0) (unit 1)
+    (property "Reference" "U5" (at 215.9 124.46 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "ICS-43434" (at 215.9 126.746 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_LCC:ICS-43434_LGA-5" (at 215.9 129.032 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C2069979" (at 215.9 131.318 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://invensense.tdk.com/wp-content/uploads/2015/02/ICS-43434-data-sheet-v1.3.pdf" (at 215.9 134.62 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "VDD" (at 210.82 126.746 0))
+    (pin "GND" (at 210.82 129.286 0))
+    (pin "WS" (at 210.82 131.826 0))
+    (pin "SCK" (at 210.82 134.366 0))
+    (pin "SD" (at 210.82 136.906 0))
+    (pin "L/R" (at 210.82 139.446 0))
+  )
+
+  ;; Bypass cap ICS-43434 100nF
+  (symbol (lib_id "Device:C") (at 203.2 126.746 0) (unit 1)
+    (property "Reference" "C10" (at 204.47 125.222 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 204.47 126.492 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 203.2 126.746 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 203.2 126.746 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; BLOQUE 5: SENSOR GAS MQ-2 (ADC)
+  ;; GPIO3 = ADC1_CH3 para lectura analogica
+  ;; Pads de soldadura para bare chip MQ-2
+  ;; =====================================================
+
+  ;; Header/Pads MQ-2 (A, B, H1, H2 = calefactor + sensor)
+  (symbol (lib_id "Connector:Conn_01x04_Pin") (at 50.8 134.62 0) (unit 1)
+    (property "Reference" "J4" (at 50.8 127.508 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "MQ2_PADS" (at 50.8 128.778 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" (at 50.8 134.62 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "VCC_5V" (at 45.72 134.62 0))
+    (pin "GND" (at 45.72 137.16 0))
+    (pin "AOUT" (at 45.72 139.7 0))
+    (pin "HEATER" (at 45.72 142.24 0))
+  )
+
+  ;; Resistencia de carga MQ-2 10k entre AOUT y GND
+  (symbol (lib_id "Device:R") (at 76.2 139.7 0) (unit 1)
+    (property "Reference" "R8" (at 77.47 138.176 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10k" (at 77.47 139.446 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.2 139.7 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25744" (at 76.2 139.7 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Divisor de voltaje 5V→3.3V para AOUT MQ-2 (R9=10k, R10=22k)
+  ;; Vout = 5V * 22k/(10k+22k) = 3.44V ≈ seguro para ESP32
+  (symbol (lib_id "Device:R") (at 88.9 134.62 0) (unit 1)
+    (property "Reference" "R9" (at 90.17 133.096 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10k" (at 90.17 134.366 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 88.9 134.62 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25744" (at 88.9 134.62 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  (symbol (lib_id "Device:R") (at 88.9 139.7 0) (unit 1)
+    (property "Reference" "R10" (at 90.17 138.176 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "22k" (at 90.17 139.446 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 88.9 139.7 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C31850" (at 88.9 139.7 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; BLOQUE 6: CONECTOR PPD42 (sensor polvo externo)
+  ;; JST PH 5-pin: +5V, GND, Vout, LED_PWR, Temp
+  ;; GPIO2 = lectura digital pulsos PPD42
+  ;; =====================================================
+
+  (symbol (lib_id "Connector:Conn_01x05_Pin") (at 50.8 170.18 0) (unit 1)
+    (property "Reference" "J2" (at 50.8 163.068 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PPD42_JST5" (at 50.8 164.338 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_JST:JST_PH_B5B-PH-K_1x05_P2.00mm_Vertical" (at 50.8 170.18 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C157926" (at 50.8 172.72 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "+5V" (at 45.72 167.64 0))
+    (pin "GND" (at 45.72 170.18 0))
+    (pin "Vout" (at 45.72 172.72 0))
+    (pin "LED_PWR" (at 45.72 175.26 0))
+    (pin "NC" (at 45.72 177.8 0))
+  )
+
+  ;; Resistencia pull-up Vout PPD42 (10k a 3.3V para nivel lógico)
+  (symbol (lib_id "Device:R") (at 76.2 172.72 0) (unit 1)
+    (property "Reference" "R11" (at 77.47 171.196 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10k" (at 77.47 172.466 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.2 172.72 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25744" (at 76.2 172.72 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; NOTAS DEL ESQUEMATICO
+  ;; =====================================================
+
+  (text "MAPA DE PINES ESP32-C3-MINI-1:" (at 245 40.64 0) (effects (font (size 1.524 1.524) (bold yes))))
+
+  (text "GPIO2  -> PPD42 Vout (pulsos digitales)\nGPIO3  -> MQ-2 AOUT (ADC1_CH3, tras divisor volt)\nGPIO4  -> I2S WS (microfono ICS-43434)\nGPIO5  -> I2S SCK\nGPIO6  -> I2S SD\nGPIO8  -> I2C SDA (SHT31 + BH1750)\nGPIO9  -> I2C SCL\nGPIO20 -> UART RXD0 (debug)\nGPIO21 -> UART TXD0\nEN     -> Reset (SW1, pull-up 10k)\nGPIO9  -> Boot (SW2, pull-up 10k)" (at 245 43.18 0) (effects (font (size 1.27 1.27))))
+
+  (text "NOTA DE DISENO:\n- SHT31 ADDR=GND -> dir I2C 0x44\n- BH1750 ADDR=GND -> dir I2C 0x23\n- ICS-43434 L/R=GND -> canal izquierdo\n- MQ-2 necesita precalentamiento 30s\n- PPD42 consume 5V@90mA (alimentar desde VBUS USB-C)\n- Tamano objetivo PCB: 70x55mm, 2 capas\n- Fabricar en JLCPCB: Gerber + BOM LCSC -> PCBA" (at 245 88.9 0) (effects (font (size 1.27 1.27))))
+
+)
