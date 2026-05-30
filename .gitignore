@@ -1,5 +1,6 @@
 # Credenciales sensibles — NUNCA subir al repositorio
 firmware/pollution_monitor/config.h
+dashboard/config.js
 
 # Arduino build artifacts
 *.elf

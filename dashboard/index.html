@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitor de Contaminación Comunal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="config.js"></script>
+  <style>
+    body { background-color: #0f172a; }
+    .card { background: #1e293b; border: 1px solid #334155; }
+    .badge-bueno      { background:#14532d; color:#4ade80; }
+    .badge-moderado   { background:#713f12; color:#fde047; }
+    .badge-malo       { background:#7c2d12; color:#fb923c; }
+    .badge-muy-malo   { background:#7f1d1d; color:#f87171; }
+    .badge-peligroso  { background:#3b0764; color:#e879f9; }
+    @keyframes pulse-green { 0%,100%{opacity:1} 50%{opacity:.4} }
+    @keyframes pulse-red   { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .pulse-green { animation: pulse-green 2s ease-in-out infinite; }
+    .pulse-red   { animation: pulse-red   1s ease-in-out infinite; }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 font-sans">
+
+  <!-- ── Header ──────────────────────────────────────────────────────── -->
+  <header class="border-b border-slate-700 bg-slate-900 sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl" role="img" aria-label="hoja">🌿</span>
+        <div>
+          <h1 class="text-lg font-bold leading-tight">Monitor de Contaminación Comunal</h1>
+          <p class="text-sm text-slate-400">Santiago Centro · Sensor node-01</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 text-sm">
+        <div class="flex items-center gap-2">
+          <span id="conn-dot" class="inline-block w-3 h-3 rounded-full bg-slate-500"></span>
+          <span id="conn-label" class="text-slate-400">Conectando…</span>
+        </div>
+        <div class="text-slate-400">
+          Actualizado: <span id="last-updated" class="text-slate-200">—</span>
+        </div>
+        <div class="text-slate-400">
+          Próximo en <span id="refresh-countdown" class="text-slate-200 font-mono">30</span>s
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+
+    <!-- ── Cards de valores actuales ───────────────────────────────── -->
+    <section>
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Lectura actual</h2>
+      <div id="cards-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <!-- Temperature -->
+        <div class="card rounded-xl p-4 flex flex-col gap-1">
+          <span class="text-xs text-slate-500 uppercase tracking-wide">Temperatura</span>
+          <span id="val-temp" class="text-3xl font-bold text-sky-400">—</span>
+          <span class="text-xs text-slate-500">°C</span>
+        </div>
+        <!-- Humidity -->
+        <div class="card rounded-xl p-4 flex flex-col gap-1">
+          <span class="text-xs text-slate-500 uppercase tracking-wide">Humedad</span>
+          <span id="val-hum" class="text-3xl font-bold text-blue-400">—</span>
+          <span class="text-xs text-slate-500">%</span>
+        </div>
+        <!-- PM10 -->
+        <div class="card rounded-xl p-4 flex flex-col gap-1">
+          <span class="text-xs text-slate-500 uppercase tracking-wide">Polvo PM10</span>
+          <span id="val-pm10" class="text-3xl font-bold text-amber-400">—</span>
+          <span class="text-xs text-slate-500">µg/m³</span>
+          <span id="badge-pm10" class="mt-1 self-start text-xs font-semibold px-2 py-0.5 rounded-full">—</span>
+        </div>
+        <!-- Sound -->
+        <div class="card rounded-xl p-4 flex flex-col gap-1">
+          <span class="text-xs text-slate-500 uppercase tracking-wide">Sonido</span>
+          <span id="val-sound" class="text-3xl font-bold text-purple-400">—</span>
+          <span class="text-xs text-slate-500">dB</span>
+        </div>
+        <!-- Gas -->
+        <div class="card rounded-xl p-4 flex flex-col gap-1">
+          <span class="text-xs text-slate-500 uppercase tracking-wide">Gas MQ-2</span>
+          <span id="val-gas" class="text-3xl font-bold text-orange-400">—</span>
+          <span class="text-xs text-slate-500">ppm</span>
+        </div>
+        <!-- Luminosity -->
+        <div class="card rounded-xl p-4 flex flex-col gap-1">
+          <span class="text-xs text-slate-500 uppercase tracking-wide">Luminosidad</span>
+          <span id="val-lux" class="text-3xl font-bold text-yellow-400">—</span>
+          <span class="text-xs text-slate-500">lux</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gráficos históricos ─────────────────────────────────────── -->
+    <section>
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Histórico</h2>
+        <div class="flex gap-1 text-xs">
+          <button data-range="1h"  class="range-btn px-3 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 transition">1 h</button>
+          <button data-range="24h" class="range-btn px-3 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 transition active-range">24 h</button>
+          <button data-range="7d"  class="range-btn px-3 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 transition">7 d</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="card rounded-xl p-4">
+          <p class="text-xs text-slate-500 mb-2">Temperatura (°C) · Humedad (%)</p>
+          <canvas id="chart-temp-hum" height="160"></canvas>
+        </div>
+        <div class="card rounded-xl p-4">
+          <p class="text-xs text-slate-500 mb-2">Polvo PM10 (µg/m³)</p>
+          <canvas id="chart-pm10" height="160"></canvas>
+        </div>
+        <div class="card rounded-xl p-4">
+          <p class="text-xs text-slate-500 mb-2">Sonido (dB)</p>
+          <canvas id="chart-sound" height="160"></canvas>
+        </div>
+        <div class="card rounded-xl p-4">
+          <p class="text-xs text-slate-500 mb-2">Gas MQ-2 (ppm)</p>
+          <canvas id="chart-gas" height="160"></canvas>
+        </div>
+      </div>
+
+      <!-- PM10 AQI legend -->
+      <div class="mt-4 card rounded-xl p-4">
+        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">Índice de calidad de aire PM10 (OMS)</p>
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+          <span class="badge-bueno     px-3 py-1 rounded-full">Bueno 0–25 µg/m³</span>
+          <span class="badge-moderado  px-3 py-1 rounded-full">Moderado 25–50 µg/m³</span>
+          <span class="badge-malo      px-3 py-1 rounded-full">Malo 50–90 µg/m³</span>
+          <span class="badge-muy-malo  px-3 py-1 rounded-full">Muy malo 90–180 µg/m³</span>
+          <span class="badge-peligroso px-3 py-1 rounded-full">Peligroso &gt;180 µg/m³</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (() => {
+    // ── Config ──────────────────────────────────────────────────────
+    const { url: BASE_URL, anonKey: API_KEY } = SUPABASE_CONFIG;
+    const TABLE   = "mediciones";
+    const REFRESH = 30; // seconds
+
+    // ── Helpers ─────────────────────────────────────────────────────
+    const fmt = (v, dec = 1) => (v == null ? "—" : (+v).toFixed(dec));
+
+    function pm10Badge(val) {
+      if (val == null) return { label: "—", cls: "bg-slate-700 text-slate-400" };
+      if (val <= 25)  return { label: "Bueno",      cls: "badge-bueno" };
+      if (val <= 50)  return { label: "Moderado",   cls: "badge-moderado" };
+      if (val <= 90)  return { label: "Malo",       cls: "badge-malo" };
+      if (val <= 180) return { label: "Muy malo",   cls: "badge-muy-malo" };
+      return              { label: "Peligroso",  cls: "badge-peligroso" };
+    }
+
+    function setConn(ok, stale) {
+      const dot   = document.getElementById("conn-dot");
+      const label = document.getElementById("conn-label");
+      if (!ok) {
+        dot.className   = "inline-block w-3 h-3 rounded-full bg-red-500 pulse-red";
+        label.textContent = "Sin conexión";
+        return;
+      }
+      if (stale) {
+        dot.className   = "inline-block w-3 h-3 rounded-full bg-yellow-400";
+        label.textContent = "Sensor inactivo";
+      } else {
+        dot.className   = "inline-block w-3 h-3 rounded-full bg-green-500 pulse-green";
+        label.textContent = "En línea";
+      }
+    }
+
+    async function supabaseFetch(params) {
+      const qs = new URLSearchParams(params).toString();
+      const res = await fetch(`${BASE_URL}/rest/v1/${TABLE}?${qs}`, {
+        headers: { apikey: API_KEY, Authorization: `Bearer ${API_KEY}`, Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    }
+
+    // ── Charts ──────────────────────────────────────────────────────
+    const chartDefaults = {
+      responsive: true,
+      animation: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: { legend: { labels: { color: "#94a3b8", boxWidth: 12, font: { size: 11 } } } },
+      scales: {
+        x: { ticks: { color: "#64748b", maxTicksLimit: 8, font: { size: 10 } }, grid: { color: "#1e293b" } },
+        y: { ticks: { color: "#64748b", font: { size: 10 } }, grid: { color: "#334155" } },
+      },
+    };
+
+    function makeChart(id, datasets, yLabel) {
+      const ctx = document.getElementById(id).getContext("2d");
+      return new Chart(ctx, {
+        type: "line",
+        data: { labels: [], datasets },
+        options: {
+          ...chartDefaults,
+          scales: {
+            ...chartDefaults.scales,
+            y: { ...chartDefaults.scales.y, title: { display: !!yLabel, text: yLabel, color: "#64748b", font: { size: 10 } } },
+          },
+        },
+      });
+    }
+
+    const charts = {
+      tempHum: makeChart("chart-temp-hum", [
+        { label: "Temp °C", data: [], borderColor: "#38bdf8", backgroundColor: "#38bdf820", tension: 0.3, pointRadius: 2, fill: true },
+        { label: "Humedad %", data: [], borderColor: "#60a5fa", backgroundColor: "#60a5fa10", tension: 0.3, pointRadius: 2, fill: false, yAxisID: "y1" },
+      ]),
+      pm10:    makeChart("chart-pm10",    [{ label: "PM10 µg/m³", data: [], borderColor: "#f59e0b", backgroundColor: "#f59e0b20", tension: 0.3, pointRadius: 2, fill: true }]),
+      sound:   makeChart("chart-sound",  [{ label: "Sonido dB",   data: [], borderColor: "#a78bfa", backgroundColor: "#a78bfa20", tension: 0.3, pointRadius: 2, fill: true }]),
+      gas:     makeChart("chart-gas",    [{ label: "Gas ppm",     data: [], borderColor: "#fb923c", backgroundColor: "#fb923c20", tension: 0.3, pointRadius: 2, fill: true }]),
+    };
+
+    // Add second y-axis for tempHum
+    charts.tempHum.options.scales.y1 = {
+      position: "right",
+      ticks: { color: "#64748b", font: { size: 10 } },
+      grid: { drawOnChartArea: false },
+    };
+    charts.tempHum.update();
+
+    function updateChart(chart, labels, ...dataArrays) {
+      chart.data.labels = labels;
+      dataArrays.forEach((arr, i) => { chart.data.datasets[i].data = arr; });
+      chart.update("none");
+    }
+
+    // ── Range selection ─────────────────────────────────────────────
+    let currentRange = "24h";
+    document.querySelectorAll(".range-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentRange = btn.dataset.range;
+        document.querySelectorAll(".range-btn").forEach(b => b.classList.remove("active-range", "bg-blue-700"));
+        btn.classList.add("active-range", "bg-blue-700");
+        loadHistory();
+      });
+    });
+    // Mark default active
+    document.querySelector('[data-range="24h"]').classList.add("bg-blue-700");
+
+    function rangeToDate(range) {
+      const now = new Date();
+      if (range === "1h")  now.setHours  (now.getHours()   - 1);
+      if (range === "24h") now.setDate   (now.getDate()    - 1);
+      if (range === "7d")  now.setDate   (now.getDate()    - 7);
+      return now.toISOString();
+    }
+
+    // ── Load current card values ─────────────────────────────────────
+    async function loadCurrent() {
+      try {
+        const rows = await supabaseFetch({ select: "*", order: "created_at.desc", limit: 1 });
+        if (!rows.length) { setConn(true, true); return; }
+        const r = rows[0];
+        document.getElementById("val-temp").textContent  = fmt(r.temperatura);
+        document.getElementById("val-hum").textContent   = fmt(r.humedad);
+        document.getElementById("val-pm10").textContent  = fmt(r.polvo_pm10);
+        document.getElementById("val-sound").textContent = fmt(r.sonido_db);
+        document.getElementById("val-gas").textContent   = fmt(r.gas_ppm);
+        document.getElementById("val-lux").textContent   = fmt(r.luminosidad, 0);
+
+        const { label, cls } = pm10Badge(r.polvo_pm10);
+        const badge = document.getElementById("badge-pm10");
+        badge.textContent = label;
+        badge.className   = `mt-1 self-start text-xs font-semibold px-2 py-0.5 rounded-full ${cls}`;
+
+        const ts   = new Date(r.created_at);
+        const ageM = (Date.now() - ts) / 60000;
+        document.getElementById("last-updated").textContent = ts.toLocaleTimeString("es-CL");
+        setConn(true, ageM > 5);
+      } catch (e) {
+        console.error("loadCurrent:", e);
+        setConn(false);
+      }
+    }
+
+    // ── Load historical data for charts ─────────────────────────────
+    async function loadHistory() {
+      const since = rangeToDate(currentRange);
+      // Limit sample count to keep charts readable
+      const limitMap = { "1h": 120, "24h": 480, "7d": 1000 };
+      const limit = limitMap[currentRange] || 500;
+
+      try {
+        const rows = await supabaseFetch({
+          select: "created_at,temperatura,humedad,polvo_pm10,sonido_db,gas_ppm",
+          order:  "created_at.asc",
+          "created_at": `gte.${since}`,
+          limit,
+        });
+
+        const labels = rows.map(r => {
+          const d = new Date(r.created_at);
+          if (currentRange === "7d") return d.toLocaleDateString("es-CL", { weekday: "short", day: "numeric" });
+          return d.toLocaleTimeString("es-CL", { hour: "2-digit", minute: "2-digit" });
+        });
+
+        updateChart(charts.tempHum, labels, rows.map(r => r.temperatura), rows.map(r => r.humedad));
+        updateChart(charts.pm10,    labels, rows.map(r => r.polvo_pm10));
+        updateChart(charts.sound,   labels, rows.map(r => r.sonido_db));
+        updateChart(charts.gas,     labels, rows.map(r => r.gas_ppm));
+      } catch (e) {
+        console.error("loadHistory:", e);
+      }
+    }
+
+    // ── Refresh ticker ───────────────────────────────────────────────
+    let remaining = REFRESH;
+    setInterval(() => {
+      remaining--;
+      document.getElementById("refresh-countdown").textContent = remaining;
+      if (remaining <= 0) {
+        remaining = REFRESH;
+        loadCurrent();
+        loadHistory();
+      }
+    }, 1000);
+
+    // ── Initial load ─────────────────────────────────────────────────
+    loadCurrent();
+    loadHistory();
+  })();
+  </script>
+</body>
+</html>
