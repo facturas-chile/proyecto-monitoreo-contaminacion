@@ -1,0 +1,12 @@
+# Credenciales sensibles — NUNCA subir al repositorio
+firmware/pollution_monitor/config.h
+
+# Arduino build artifacts
+*.elf
+*.hex
+*.eep
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
