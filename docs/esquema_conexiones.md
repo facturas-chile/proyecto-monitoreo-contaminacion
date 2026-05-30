@@ -11,4 +11,10 @@
 | A1 | MQ-2 | Analógico (gas ppm) |
 | A2 | LDR | Analógico (luminosidad) |
 
-> Diagrama de circuito pendiente (ver estado del proyecto en la wiki).
+## Diagramas de conexiones
+
+### Diagrama esquemático
+![Diagrama de conexiones](conexiones_diagrama.svg)
+
+### Diagrama Fritzing
+![Fritzing](conexiones_fritzing.svg)

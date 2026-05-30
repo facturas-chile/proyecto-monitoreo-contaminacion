@@ -1,0 +1,303 @@
+<svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" font-family="monospace, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+    </marker>
+    <!-- Wire colors -->
+    <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr-blk" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arr-yel" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#eab308"/>
+    </marker>
+    <marker id="arr-blu" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#0f172a"/>
+  <rect width="900" height="700" fill="url(#grid)" opacity="0.05"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#94a3b8" font-size="13" letter-spacing="3">MONITOR DE CONTAMINACIÓN — DIAGRAMA DE CONEXIONES</text>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- ARDUINO UNO WIFI (centro) -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="330" y="60" width="240" height="560" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="340" y="70" width="220" height="40" rx="6" fill="#0ea5e9" opacity="0.2"/>
+  <text x="450" y="87" text-anchor="middle" fill="#0ea5e9" font-size="11" font-weight="bold">ARDUINO UNO WIFI</text>
+  <text x="450" y="101" text-anchor="middle" fill="#64748b" font-size="9">ATmega328P + WiFi</text>
+
+  <!-- Pin labels LEFT side of Arduino -->
+  <!-- Digital pins -->
+  <text x="340" y="160" text-anchor="start" fill="#94a3b8" font-size="10">D2</text>
+  <circle cx="332" cy="156" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <text x="340" y="190" text-anchor="start" fill="#94a3b8" font-size="10">D3</text>
+  <circle cx="332" cy="186" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <text x="340" y="220" text-anchor="start" fill="#94a3b8" font-size="10">D4</text>
+  <circle cx="332" cy="216" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <text x="340" y="250" text-anchor="start" fill="#94a3b8" font-size="10">D5</text>
+  <circle cx="332" cy="246" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <text x="340" y="280" text-anchor="start" fill="#94a3b8" font-size="10">A0</text>
+  <circle cx="332" cy="276" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <text x="340" y="310" text-anchor="start" fill="#94a3b8" font-size="10">A1</text>
+  <circle cx="332" cy="306" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <text x="340" y="340" text-anchor="start" fill="#94a3b8" font-size="10">A2</text>
+  <circle cx="332" cy="336" r="4" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- Power pins RIGHT side -->
+  <text x="558" y="160" text-anchor="end" fill="#ef4444" font-size="10">5V</text>
+  <circle cx="568" cy="156" r="4" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+
+  <text x="558" y="185" text-anchor="end" fill="#f97316" font-size="10">3.3V</text>
+  <circle cx="568" cy="181" r="4" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+
+  <text x="558" y="210" text-anchor="end" fill="#475569" font-size="10">GND</text>
+  <circle cx="568" cy="206" r="4" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+
+  <text x="558" y="235" text-anchor="end" fill="#475569" font-size="10">GND</text>
+  <circle cx="568" cy="231" r="4" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- WiFi chip label -->
+  <rect x="360" y="440" width="180" height="60" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="450" y="466" text-anchor="middle" fill="#0ea5e9" font-size="10">📶 WiFi Module</text>
+  <text x="450" y="482" text-anchor="middle" fill="#64748b" font-size="9">→ Supabase API</text>
+  <text x="450" y="496" text-anchor="middle" fill="#64748b" font-size="9">HTTP POST / 30 seg</text>
+
+  <!-- USB label -->
+  <rect x="390" y="540" width="120" height="36" rx="5" fill="#0f172a" stroke="#334155"/>
+  <text x="450" y="557" text-anchor="middle" fill="#64748b" font-size="9">USB / Alimentación</text>
+  <text x="450" y="570" text-anchor="middle" fill="#475569" font-size="9">5V 1A mínimo</text>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SENSOR 1: PPD42 (arriba izquierda) -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="20" y="55" width="160" height="100" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="20" y="55" width="160" height="22" rx="8" fill="#f59e0b" opacity="0.3"/>
+  <text x="100" y="70" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="bold">SHINYEI PPD42NS</text>
+  <text x="100" y="84" text-anchor="middle" fill="#94a3b8" font-size="8">Detector de Polvo PM2.5/PM10</text>
+  <!-- pins -->
+  <text x="30" y="104" fill="#475569" font-size="9">GND</text>
+  <text x="30" y="118" fill="#eab308" font-size="9">P2 →</text>
+  <text x="30" y="132" fill="#475569" font-size="9">GND</text>
+  <text x="30" y="146" fill="#22c55e" font-size="9">P1 →</text>
+  <text x="110" y="104" fill="#ef4444" font-size="9">VCC (5V)</text>
+  <!-- Pin dots right side -->
+  <circle cx="168" cy="100" r="3" fill="#ef4444"/>
+  <circle cx="168" cy="142" r="3" fill="#475569"/>
+  <circle cx="100" cy="118" r="3" fill="#eab308"/>
+  <circle cx="100" cy="132" r="3" fill="#22c55e"/>
+
+  <!-- P1 wire → D2 -->
+  <line x1="100" y1="132" x2="100" y2="155" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="none"/>
+  <line x1="100" y1="155" x2="332" y2="156" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr-grn)"/>
+  <text x="200" y="150" fill="#22c55e" font-size="8">P1 → D2</text>
+
+  <!-- P2 wire → D3 -->
+  <line x1="100" y1="118" x2="100" y2="170" stroke="#eab308" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="100" y1="170" x2="200" y2="170" stroke="#eab308" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="200" y1="170" x2="200" y2="186" stroke="#eab308" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="200" y1="186" x2="332" y2="186" stroke="#eab308" stroke-width="1.5" marker-end="url(#arr-yel)" stroke-dasharray="4,2"/>
+  <text x="205" y="183" fill="#eab308" font-size="8">P2 → D3</text>
+
+  <!-- PPD42 VCC 5V -->
+  <line x1="168" y1="100" x2="220" y2="100" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="220" y1="100" x2="220" y2="156" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="220" y1="156" x2="568" y2="156" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arr-red)"/>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SENSOR 2: AM2302 (izquierda centro-arriba) -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="20" y="195" width="160" height="90" rx="8" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="20" y="195" width="160" height="22" rx="8" fill="#a78bfa" opacity="0.3"/>
+  <text x="100" y="210" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="bold">ASAIR AM2302</text>
+  <text x="100" y="222" text-anchor="middle" fill="#94a3b8" font-size="8">Temp. / Humedad</text>
+  <text x="30" y="243" fill="#f97316" font-size="9">VCC (3.3V)</text>
+  <text x="30" y="258" fill="#a78bfa" font-size="9">DATA →</text>
+  <text x="30" y="273" fill="#475569" font-size="9">GND</text>
+  <circle cx="168" cy="239" r="3" fill="#f97316"/>
+  <circle cx="168" cy="254" r="3" fill="#a78bfa"/>
+  <circle cx="168" cy="269" r="3" fill="#475569"/>
+
+  <!-- Note: pull-up resistor -->
+  <!-- Resistor symbol between DATA and 3.3V -->
+  <rect x="175" y="235" width="22" height="8" rx="2" fill="none" stroke="#a78bfa" stroke-width="1.2"/>
+  <text x="175" y="233" fill="#a78bfa" font-size="7">10kΩ</text>
+  <line x1="168" y1="239" x2="175" y2="239" stroke="#f97316" stroke-width="1"/>
+  <line x1="197" y1="239" x2="210" y2="239" stroke="#f97316" stroke-width="1"/>
+  <line x1="186" y1="235" x2="186" y2="231" stroke="#a78bfa" stroke-width="1"/>
+  <line x1="186" y1="231" x2="168" y2="231" stroke="#a78bfa" stroke-width="1"/>
+  <line x1="168" y1="231" x2="168" y2="254" stroke="#a78bfa" stroke-width="1" stroke-dasharray="2,1"/>
+
+  <!-- DATA → D4 -->
+  <line x1="168" y1="254" x2="210" y2="254" stroke="#a78bfa" stroke-width="1.5"/>
+  <line x1="210" y1="254" x2="210" y2="216" stroke="#a78bfa" stroke-width="1.5"/>
+  <line x1="210" y1="216" x2="332" y2="216" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="240" y="211" fill="#a78bfa" font-size="8">DATA → D4</text>
+
+  <!-- VCC 3.3V -->
+  <line x1="210" y1="239" x2="250" y2="239" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="250" y1="239" x2="250" y2="181" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="250" y1="181" x2="568" y2="181" stroke="#f97316" stroke-width="1.5" marker-end="url(#arr)"/>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SENSOR 3: Sound Detector (izquierda centro) -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="20" y="325" width="160" height="100" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <rect x="20" y="325" width="160" height="22" rx="8" fill="#34d399" opacity="0.3"/>
+  <text x="100" y="340" text-anchor="middle" fill="#34d399" font-size="10" font-weight="bold">SPARKFUN SOUND</text>
+  <text x="100" y="352" text-anchor="middle" fill="#94a3b8" font-size="8">Detector de Sonido (dB)</text>
+  <text x="30" y="373" fill="#f97316" font-size="9">VCC (3.3V)</text>
+  <text x="30" y="388" fill="#475569" font-size="9">GND</text>
+  <text x="30" y="403" fill="#34d399" font-size="9">GATE →</text>
+  <text x="30" y="418" fill="#3b82f6" font-size="9">AUDIO →</text>
+  <circle cx="168" cy="369" r="3" fill="#f97316"/>
+  <circle cx="168" cy="384" r="3" fill="#475569"/>
+  <circle cx="168" cy="399" r="3" fill="#34d399"/>
+  <circle cx="168" cy="414" r="3" fill="#3b82f6"/>
+
+  <!-- GATE → D5 -->
+  <line x1="168" y1="399" x2="290" y2="399" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="290" y1="399" x2="290" y2="246" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="290" y1="246" x2="332" y2="246" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr-grn)" stroke-dasharray="3,2"/>
+  <text x="295" y="260" fill="#34d399" font-size="8">GATE→D5</text>
+
+  <!-- AUDIO → A0 -->
+  <line x1="168" y1="414" x2="305" y2="414" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="305" y1="414" x2="305" y2="276" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="305" y1="276" x2="332" y2="276" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blu)"/>
+  <text x="308" y="290" fill="#3b82f6" font-size="8">AUD→A0</text>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SENSOR 4: MQ-2 (derecha centro-arriba) -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="720" y="140" width="160" height="100" rx="8" fill="#1e293b" stroke="#fb923c" stroke-width="1.5"/>
+  <rect x="720" y="140" width="160" height="22" rx="8" fill="#fb923c" opacity="0.3"/>
+  <text x="800" y="155" text-anchor="middle" fill="#fb923c" font-size="10" font-weight="bold">FC-22 / MQ-2</text>
+  <text x="800" y="167" text-anchor="middle" fill="#94a3b8" font-size="8">Sensor de Gases (ppm)</text>
+  <text x="730" y="188" fill="#ef4444" font-size="9">VCC (5V)</text>
+  <text x="730" y="203" fill="#475569" font-size="9">GND</text>
+  <text x="730" y="218" fill="#fb923c" font-size="9">← AOUT</text>
+  <text x="730" y="233" fill="#64748b" font-size="9">DOUT (no usar)</text>
+  <circle cx="720" cy="184" r="3" fill="#ef4444"/>
+  <circle cx="720" cy="199" r="3" fill="#475569"/>
+  <circle cx="720" cy="214" r="3" fill="#fb923c"/>
+
+  <!-- AOUT → A1 -->
+  <line x1="720" y1="214" x2="630" y2="214" stroke="#fb923c" stroke-width="1.5"/>
+  <line x1="630" y1="214" x2="630" y2="306" stroke="#fb923c" stroke-width="1.5"/>
+  <line x1="630" y1="306" x2="568" y2="306" stroke="#fb923c" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="600" y="220" fill="#fb923c" font-size="8">AOUT → A1</text>
+
+  <!-- VCC 5V MQ-2 -->
+  <line x1="720" y1="184" x2="690" y2="184" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="690" y1="184" x2="690" y2="156" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="690" y1="156" x2="568" y2="156" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"/>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SENSOR 5: LDR (derecha centro-bajo) -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="720" y="290" width="160" height="120" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <rect x="720" y="290" width="160" height="22" rx="8" fill="#fbbf24" opacity="0.3"/>
+  <text x="800" y="305" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="bold">FOTORESISTENCIA</text>
+  <text x="800" y="317" text-anchor="middle" fill="#94a3b8" font-size="8">LDR — Sensor de Luz (lux)</text>
+
+  <!-- LDR circuit diagram -->
+  <!-- 5V -->
+  <text x="730" y="338" fill="#ef4444" font-size="9">5V</text>
+  <line x1="745" y1="334" x2="745" y2="343" stroke="#ef4444" stroke-width="1.5"/>
+  <!-- LDR symbol (zigzag) -->
+  <polyline points="745,343 750,348 740,352 750,356 740,360 745,365" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="755" y="358" fill="#fbbf24" font-size="8">LDR</text>
+  <!-- node -->
+  <circle cx="745" cy="365" r="3" fill="#fbbf24"/>
+  <!-- wire to A2 -->
+  <line x1="745" y1="365" x2="720" y2="365" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="722" y="378" fill="#fbbf24" font-size="8">← A2</text>
+  <!-- R_FIXED -->
+  <line x1="745" y1="365" x2="745" y2="374" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="737" y="374" width="16" height="8" rx="2" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="756" y="381" fill="#94a3b8" font-size="8">10kΩ</text>
+  <line x1="745" y1="382" x2="745" y2="390" stroke="#475569" stroke-width="1.5"/>
+  <text x="730" y="403" fill="#475569" font-size="9">GND</text>
+
+  <!-- Wire A2 to Arduino -->
+  <line x1="720" y1="365" x2="645" y2="365" stroke="#fbbf24" stroke-width="1.5"/>
+  <line x1="645" y1="365" x2="645" y2="336" stroke="#fbbf24" stroke-width="1.5"/>
+  <line x1="645" y1="336" x2="568" y2="336" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="610" y="332" fill="#fbbf24" font-size="8">→ A2</text>
+
+  <!-- 5V line for LDR -->
+  <line x1="745" y1="334" x2="745" y2="326" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="745" y1="326" x2="690" y2="326" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="690" y1="326" x2="690" y2="270" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"/>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- GND BUS (línea negra común abajo) -->
+  <!-- ═══════════════════════════════════════ -->
+  <line x1="50" y1="640" x2="850" y2="640" stroke="#475569" stroke-width="2"/>
+  <text x="450" y="655" text-anchor="middle" fill="#475569" font-size="9">━━━━━━━━━ GND COMÚN ━━━━━━━━━</text>
+
+  <!-- GND drops from sensors -->
+  <line x1="168" y1="269" x2="168" y2="640" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="168" y1="384" x2="175" y2="384" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="175" y1="384" x2="175" y2="640" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="720" y1="199" x2="680" y2="199" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="680" y1="199" x2="680" y2="640" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="745" y1="390" x2="745" y2="420" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="745" y1="420" x2="800" y2="420" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="800" y1="420" x2="800" y2="640" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Arduino GND to bus -->
+  <line x1="568" y1="206" x2="600" y2="206" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="600" y1="206" x2="600" y2="640" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- LEYENDA -->
+  <!-- ═══════════════════════════════════════ -->
+  <rect x="330" y="590" width="240" height="65" rx="6" fill="#0f172a" stroke="#1e293b"/>
+  <text x="340" y="607" fill="#64748b" font-size="9">LEYENDA DE COLORES DE CABLES</text>
+  <line x1="340" y1="618" x2="365" y2="618" stroke="#ef4444" stroke-width="2"/>
+  <text x="370" y="621" fill="#ef4444" font-size="8">5V (alimentación)</text>
+  <line x1="340" y1="630" x2="365" y2="630" stroke="#f97316" stroke-width="2"/>
+  <text x="370" y="633" fill="#f97316" font-size="8">3.3V</text>
+  <line x1="340" y1="642" x2="365" y2="642" stroke="#475569" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="370" y="645" fill="#475569" font-size="8">GND</text>
+  <line x1="450" y1="618" x2="475" y2="618" stroke="#22c55e" stroke-width="2"/>
+  <text x="480" y="621" fill="#22c55e" font-size="8">Digital (datos)</text>
+  <line x1="450" y1="630" x2="475" y2="630" stroke="#3b82f6" stroke-width="2"/>
+  <text x="480" y="633" fill="#3b82f6" font-size="8">Analógico</text>
+  <line x1="450" y1="642" x2="475" y2="642" stroke="#a78bfa" stroke-width="2"/>
+  <text x="480" y="645" fill="#a78bfa" font-size="8">1-Wire / DHT</text>
+
+  <!-- Warning label MQ2 -->
+  <rect x="718" y="248" width="164" height="36" rx="4" fill="#0f172a" stroke="#fb923c" stroke-width="1"/>
+  <text x="800" y="262" text-anchor="middle" fill="#fb923c" font-size="8">⚠ Preheat 2-3 min</text>
+  <text x="800" y="278" text-anchor="middle" fill="#64748b" font-size="8">Usa fuente externa 5V 1A</text>
+
+  <!-- Warning label PPD42 -->
+  <rect x="20" y="165" width="160" height="24" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="100" y="175" text-anchor="middle" fill="#f59e0b" font-size="8">⚠ Preheat 60 seg</text>
+  <text x="100" y="184" text-anchor="middle" fill="#64748b" font-size="8">Ventana muestreo: 30 seg</text>
+
+</svg>
