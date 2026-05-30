@@ -6,7 +6,14 @@
   <title>Monitor de Contaminación Comunal</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="config.js"></script>
+  <!-- Default config (Supabase anon key is public-safe). Override via config.js (gitignored). -->
+  <script>
+    var SUPABASE_CONFIG = {
+      url: "https://kfzehdcotiuxswhkmtix.supabase.co",
+      anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmemVoZGNvdGl1eHN3aGttdGl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyOTcyMzEsImV4cCI6MjA5NDg3MzIzMX0.MSaCYB_vLlTAaa7T-NeGctTT153mXpZW7OX3hZvy2h8",
+    };
+  </script>
+  <script src="config.js" onerror="void 0"></script>
   <style>
     body { background-color: #0f172a; }
     .card { background: #1e293b; border: 1px solid #334155; }
