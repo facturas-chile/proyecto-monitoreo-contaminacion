@@ -1,4 +1,4 @@
-name: Deploy Dashboard to GitHub Pages
+name: Sync dashboard to gh-pages
 
 on:
   push:
@@ -9,32 +9,28 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
+  contents: write
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload dashboard artifact
-        uses: actions/upload-pages-artifact@v3
         with:
-          path: './dashboard'
+          fetch-depth: 0
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Push dashboard/ to gh-pages branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Detach to avoid branch confusion
+          git worktree add /tmp/gh-pages gh-pages
+          # Copy dashboard files to worktree root
+          cp dashboard/index.html /tmp/gh-pages/index.html
+          cp dashboard/config.example.js /tmp/gh-pages/config.example.js
+          cd /tmp/gh-pages
+          git add -A
+          git diff --cached --quiet && echo "No changes to deploy" && exit 0
+          git commit -m "Deploy dashboard from $(git -C $GITHUB_WORKSPACE rev-parse --short HEAD)"
+          git push origin gh-pages
