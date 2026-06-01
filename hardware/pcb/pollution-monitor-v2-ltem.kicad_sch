@@ -1,0 +1,155 @@
+(kicad_sch (version 20230121) (generator "eeschema")
+
+  (paper "A3")
+
+  (title_block
+    (title "Monitor Contaminacion - PCB v2 LTE-M Variant")
+    (date "2026-06-01")
+    (rev "2.0")
+    (company "Emprendimientos Varios IAV")
+    (comment 1 "Extiende v1: agrega SIM7080G LTE-M/NB-IoT como fallback cuando no hay WiFi")
+    (comment 2 "Tamano: 80x60mm (maximo permitido), 2 capas, JLCPCB")
+    (comment 3 "CTO Agent IAV-10")
+  )
+
+  ;; =====================================================
+  ;; BLOQUE ADICIONAL: SIM7080G LTE-M/NB-IoT MODULE
+  ;; UART: TX=GPIO7 (ESP32→SIM), RX=GPIO10 (SIM→ESP32)
+  ;; PWRKEY=GPIO11, STATUS=GPIO18
+  ;; =====================================================
+
+  ;; SIM7080G-M2M (LTE-M + NB-IoT + GNSS, 56-pin LCC 8x8mm)
+  (symbol (lib_id "RF_Module:SIM7080G") (at 60 80 0) (unit 1)
+    (property "Reference" "U6" (at 60 60 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SIM7080G-M2M" (at 60 62.5 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "RF_Module:SIM7080G_LCC56_8x8mm" (at 60 65 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C2836714" (at 60 67.5 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Datasheet" "https://simcom.com/product/SIM7080G.html" (at 60 70 0) (effects (font (size 1.27 1.27)) (hide)))
+    ;; Key pins (selected subset for schematic clarity)
+    (pin "VBAT" (at 45 72.5 0))
+    (pin "GND" (at 45 75 0))
+    (pin "TXD" (at 45 80 0))
+    (pin "RXD" (at 45 82.5 0))
+    (pin "PWRKEY" (at 45 85 0))
+    (pin "STATUS" (at 45 87.5 0))
+    (pin "NETLIGHT" (at 45 90 0))
+    (pin "SIM_VDD" (at 75 72.5 180))
+    (pin "SIM_DATA" (at 75 75 180))
+    (pin "SIM_CLK" (at 75 77.5 180))
+    (pin "SIM_RST" (at 75 80 180))
+    (pin "SIM_DET" (at 75 82.5 180))
+    (pin "ANT_MAIN" (at 75 87.5 180))
+    (pin "GND_RF" (at 75 92.5 180))
+  )
+
+  ;; =====================================================
+  ;; ALIMENTACION SIM7080G: AMS1117-3.8V desde +5V USB
+  ;; SIM7080G: VBAT 3.3-4.2V, tipico 3.8V, peak ~500mA LTE-M
+  ;; =====================================================
+
+  ;; AMS1117-3.8V LDO para celular
+  (symbol (lib_id "Regulator_Linear:AMS1117-3.8") (at 30 75 0) (unit 1)
+    (property "Reference" "U7" (at 30 68 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "AMS1117-3.8" (at 30 70 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2" (at 30 72 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C347980" (at 30 74 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "Note" "AMS1117-3.8 -- 800mA peak OK para LTE-M/NB-IoT (max 500mA TX)" (at 30 76 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Capacitor bulk 470uF en rail 3.8V para picos de transmision celular
+  (symbol (lib_id "Device:C") (at 18 75 0) (unit 1)
+    (property "Reference" "C11" (at 19.27 73.48 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "470uF/6.3V" (at 19.27 74.75 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 18 75 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C13585" (at 18 75 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Capacitor ceramico 100nF entrada LDO celular
+  (symbol (lib_id "Device:C") (at 18 80 0) (unit 1)
+    (property "Reference" "C12" (at 19.27 78.48 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "100nF" (at 19.27 79.75 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 18 80 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C1525" (at 18 80 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; Capacitor ceramico 10uF salida LDO celular
+  (symbol (lib_id "Device:C") (at 44 75 0) (unit 1)
+    (property "Reference" "C13" (at 45.27 73.48 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10uF" (at 45.27 74.75 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 44 75 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C15850" (at 44 75 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; RESISTENCIA PWRKEY: pull-down 10k para PWRKEY
+  ;; PWRKEY: pulso LOW > 1.2s enciende el modulo
+  ;; =====================================================
+
+  ;; R para PWRKEY: ESP32 GPIO11 → R12 → PWRKEY SIM7080G
+  (symbol (lib_id "Device:R") (at 30 85 0) (unit 1)
+    (property "Reference" "R12" (at 31.27 83.48 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "10k" (at 31.27 84.75 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 30 85 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25744" (at 30 85 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; LED NETLIGHT: indica estado de red (parpadeo = buscando, encendido = conectado)
+  ;; =====================================================
+
+  ;; LED azul para estado de red celular
+  (symbol (lib_id "Device:LED") (at 75 92.5 0) (unit 1)
+    (property "Reference" "D2" (at 75 90 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "LED_BLUE" (at 75 91.27 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "LED_SMD:LED_0402_1005Metric" (at 75 93.78 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C72043" (at 75 92.5 0) (effects (font (size 1.27 1.27)) (hide)))
+  )
+
+  ;; Resistencia LED azul 470R (NETLIGHT es open-drain, necesita pull-up + R serie)
+  (symbol (lib_id "Device:R") (at 85 92.5 0) (unit 1)
+    (property "Reference" "R13" (at 86.27 90.98 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Value" "470R" (at 86.27 92.25 0) (effects (font (size 1.016 1.016)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 85 92.5 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C25905" (at 85 92.5 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; NANO-SIM CARD HOLDER
+  ;; =====================================================
+
+  (symbol (lib_id "Connector:SIM_Card_Holder_8pin") (at 100 75 0) (unit 1)
+    (property "Reference" "J5" (at 100 65 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Nano_SIM_Holder" (at 100 67.5 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_Card:SIM_Wuerth_693071010811" (at 100 70 0) (effects (font (size 1.27 1.27)) (hide)))
+    (property "LCSC" "C2840571" (at 100 72.5 0) (effects (font (size 1.27 1.27)) (hide)))
+    (pin "VCC" (at 90 72.5 0))
+    (pin "RST" (at 90 75 0))
+    (pin "CLK" (at 90 77.5 0))
+    (pin "DATA" (at 90 80 0))
+    (pin "CD" (at 90 82.5 0))
+    (pin "GND" (at 90 85 0))
+  )
+
+  ;; ESD protection array para lineas SIM (TVS diode array)
+  (symbol (lib_id "Device:D_Zener") (at 94 72.5 0) (unit 1)
+    (property "Reference" "D3" (at 94 70 0) (effects (font (size 1.016 1.016))))
+    (property "Value" "PRTR5V0U2X" (at 94 71.27 0) (effects (font (size 1.016 1.016))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6" (at 94 73.78 0) (effects (font (size 1.016 1.016)) (hide)))
+    (property "LCSC" "C52495" (at 94 72.5 0) (effects (font (size 1.016 1.016)) (hide)))
+  )
+
+  ;; =====================================================
+  ;; NOTAS DE DISENO v2 LTE-M
+  ;; =====================================================
+
+  (text "MAPA DE PINES ADICIONALES (v2 LTE-M):" (at 115 65 0) (effects (font (size 1.524 1.524) (bold yes))))
+
+  (text "GPIO7  -> SIM7080G TXD (ESP32 → modulo, UART1)\nGPIO10 -> SIM7080G RXD (modulo → ESP32, UART1)\nGPIO11 -> PWRKEY (pulso LOW >1.2s para encender)\nGPIO18 -> STATUS (HIGH = encendido, LOW = apagado)" (at 115 68 0) (effects (font (size 1.27 1.27))))
+
+  (text "CAMBIOS RESPECTO A v1:\n- U6: SIM7080G-M2M (LTE-M + NB-IoT + GNSS)\n- U7: AMS1117-3.8V (LDO dedicado para celular)\n- C11: 470uF bulk cap (absorbe picos TX celular ~500mA)\n- J5: Nano-SIM holder (borde placa)\n- D2: LED azul NETLIGHT (estado de red)\n- D3: PRTR5V0U2X (ESD en lineas SIM)\n- Tamano PCB: 80x60mm (vs 70x55mm v1)" (at 115 78 0) (effects (font (size 1.27 1.27))))
+
+  (text "LOGICA FIRMWARE WiFi+LTE-M:\n  if (WiFi.connected()) {\n    sendViaMQTT(); // WiFi path preferido\n  } else {\n    sim7080g.powerOn(); // pulso PWRKEY\n    sim7080g.sendHTTP(supabase_url, payload);\n  }" (at 115 95 0) (effects (font (size 1.27 1.27))))
+
+  (text "COSTO v2 vs v1:\n- SIM7080G: +$8.00 (LCSC C2836714)\n- AMS1117-3.8V: +$0.15 (C347980)\n- 470uF cap: +$0.10 (C13585)\n- Nano-SIM holder: +$0.30 (C2840571)\n- PRTR5V0U2X ESD: +$0.20 (C52495)\n- LED azul: +$0.02 (C72043)\n- Plan datos IoT (1NCE): ~$0.40/mes\n- TOTAL EXTRA: ~$8.77/nodo\n- NUEVO TOTAL: ~$26.00/nodo (objetivo era $15-25, marginal)" (at 115 110 0) (effects (font (size 1.27 1.27))))
+
+)

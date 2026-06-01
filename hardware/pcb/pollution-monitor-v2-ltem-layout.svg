@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 680" width="860" height="680">
+
+  <!-- Background -->
+  <rect width="860" height="680" fill="#111827"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="860" height="50" fill="#1f2937"/>
+  <text x="430" y="18" text-anchor="middle" fill="#f9fafb" font-family="monospace" font-size="14" font-weight="bold">Monitor Contaminación — PCB v2 LTE-M Variant</text>
+  <text x="430" y="34" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">ESP32-C3 + SIM7080G LTE-M/NB-IoT fallback · 80×60 mm · 2 capas FR4 · ~$26/nodo</text>
+  <text x="430" y="46" text-anchor="middle" fill="#6b7280" font-family="monospace" font-size="9">v1 WiFi-only: 70×55mm · v2 LTE-M fallback: 80×60mm (+SIM7080G +nano-SIM +AMS1117-3.8V)</text>
+
+  <!-- PCB BOARD: 800×600 px = 80×60 mm @ 10px/mm -->
+  <g transform="translate(28,58)">
+
+    <!-- Board -->
+    <rect x="0" y="0" width="800" height="600" rx="8" fill="#14532d" stroke="#16a34a" stroke-width="3"/>
+    <rect x="5" y="5" width="790" height="590" rx="6" fill="none" stroke="#166534" stroke-width="1" stroke-dasharray="10,5"/>
+
+    <!-- v1 footprint dashed outline (reference) -->
+    <rect x="50" y="25" width="700" height="550" rx="4" fill="none" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="15,8" opacity="0.5"/>
+    <text x="55" y="38" fill="#1a4a1a" font-family="monospace" font-size="8" opacity="0.7">← v1 boundary (70×55mm)</text>
+
+    <!-- Mounting holes -->
+    <circle cx="20" cy="20" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="20" cy="20" r="2.5" fill="#6b7280"/>
+    <circle cx="780" cy="20" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="780" cy="20" r="2.5" fill="#6b7280"/>
+    <circle cx="20" cy="580" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="20" cy="580" r="2.5" fill="#6b7280"/>
+    <circle cx="780" cy="580" r="7" fill="#0f172a" stroke="#4ade80" stroke-width="1.5"/>
+    <circle cx="780" cy="580" r="2.5" fill="#6b7280"/>
+
+    <!-- ── POWER TRACES ── -->
+    <!-- +5V VBUS: USB-C → LDO 3.3V + LDO 3.8V -->
+    <polyline points="400,545 400,525 195,525 195,500" fill="none" stroke="#dc2626" stroke-width="4" opacity="0.8"/>
+    <polyline points="400,545 400,525 600,525 600,500" fill="none" stroke="#dc2626" stroke-width="4" opacity="0.8"/>
+    <!-- +3V3 rail (amber) -->
+    <polyline points="175,462 175,210 530,210" fill="none" stroke="#d97706" stroke-width="3" opacity="0.75"/>
+    <!-- +3V8 rail (orange, cellular) -->
+    <polyline points="618,462 618,340 660,340" fill="none" stroke="#ea580c" stroke-width="3" opacity="0.75"/>
+    <!-- GND -->
+    <polyline points="385,545 385,535 155,535 155,30" fill="none" stroke="#15803d" stroke-width="2" opacity="0.4"/>
+
+    <!-- ── SIGNAL TRACES ── -->
+    <!-- I2C (cyan) -->
+    <polyline points="378,228 378,178 175,178 175,122" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="378,228 378,178 570,178 570,122" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.9" stroke-dasharray="7,3"/>
+    <polyline points="390,228 390,188 165,188 165,132" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="390,228 390,188 580,188 580,132" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.9" stroke-dasharray="7,3"/>
+    <!-- I2S (purple) -->
+    <polyline points="300,228 300,380 108,380 108,330" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="310,228 310,390 98,390 98,340" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.9"/>
+    <polyline points="320,228 320,400 88,400 88,350" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.9"/>
+    <!-- ADC MQ-2 (orange) -->
+    <polyline points="470,228 470,380 640,380 640,328" fill="none" stroke="#fb923c" stroke-width="1.5" opacity="0.9"/>
+    <!-- PPD42 GPIO2 (green) -->
+    <polyline points="358,228 358,90" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.9"/>
+    <!-- UART debug (yellow) -->
+    <polyline points="490,228 490,165 748,165 748,212" fill="none" stroke="#fbbf24" stroke-width="1.5" opacity="0.85"/>
+    <!-- SIM7080G UART GPIO7/10 (teal, NEW) -->
+    <polyline points="440,228 440,240 660,240 660,290" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.9"/>
+    <polyline points="450,228 450,250 670,250 670,300" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.9"/>
+    <!-- PWRKEY GPIO11 (rose, NEW) -->
+    <polyline points="460,228 460,260 680,260 680,310" fill="none" stroke="#fb7185" stroke-width="1.5" opacity="0.9"/>
+    <!-- STATUS GPIO18 (NEW, dashed) -->
+    <polyline points="480,228 480,270 692,270 692,320" fill="none" stroke="#fb7185" stroke-width="1" opacity="0.7" stroke-dasharray="5,3"/>
+    <!-- SIM data lines from SIM7080G → SIM holder (green-teal) -->
+    <polyline points="758,340 758,380 720,380" fill="none" stroke="#2dd4bf" stroke-width="1.5" opacity="0.85"/>
+    <!-- Reset/Boot (unchanged) -->
+    <polyline points="340,478 128,478 128,525" fill="none" stroke="#f87171" stroke-width="1.5" opacity="0.85"/>
+    <polyline points="340,488 578,488 578,525" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.85"/>
+
+    <!-- ══════════════════════════════════════════════
+         ESP32-C3-MINI-1 (center, same as v1)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(278,220)">
+      <rect x="0" y="0" width="172" height="216" rx="5" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+      <rect x="6" y="6" width="160" height="172" rx="3" fill="#263f60" stroke="#4b8ee8" stroke-width="1"/>
+      <rect x="6" y="178" width="160" height="32" rx="2" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5,3"/>
+      <path d="M76,190 L86,178 L96,190 M70,196 L86,178 L102,196 M64,202 L86,178 L108,202" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+      <text x="86" y="80" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="13" font-weight="bold">ESP32-C3</text>
+      <text x="86" y="97" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="11">MINI-1</text>
+      <text x="86" y="113" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">WiFi + LTE-M fallback</text>
+      <text x="86" y="127" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">LCSC C2838502</text>
+      <!-- Left pads -->
+      <rect x="-7" y="18" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="30" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="42" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="54" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="66" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="78" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="90" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="102" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="114" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="126" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-7" y="138" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <!-- Right pads (new assignments) -->
+      <rect x="169" y="18" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="30" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="42" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="54" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="66" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="78" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="90" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="102" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="114" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="126" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="169" y="138" width="10" height="6" rx="1" fill="#ca8a04"/>
+      <!-- Left labels -->
+      <text x="-11" y="24" text-anchor="end" fill="#6ee7b7" font-family="monospace" font-size="7">GND</text>
+      <text x="-11" y="36" text-anchor="end" fill="#fde68a" font-family="monospace" font-size="7">3V3</text>
+      <text x="-11" y="48" text-anchor="end" fill="#4ade80" font-family="monospace" font-size="7">G2 PPD42</text>
+      <text x="-11" y="60" text-anchor="end" fill="#fb923c" font-family="monospace" font-size="7">G3 MQ2</text>
+      <text x="-11" y="72" text-anchor="end" fill="#c084fc" font-family="monospace" font-size="7">G4 I2S WS</text>
+      <text x="-11" y="84" text-anchor="end" fill="#c084fc" font-family="monospace" font-size="7">G5 I2S SCK</text>
+      <text x="-11" y="96" text-anchor="end" fill="#c084fc" font-family="monospace" font-size="7">G6 I2S SD</text>
+      <text x="-11" y="108" text-anchor="end" fill="#14b8a6" font-family="monospace" font-size="7">G7 SIM TX ★</text>
+      <text x="-11" y="120" text-anchor="end" fill="#22d3ee" font-family="monospace" font-size="7">G8 SDA</text>
+      <text x="-11" y="132" text-anchor="end" fill="#60a5fa" font-family="monospace" font-size="7">G9 SCL</text>
+      <text x="-11" y="144" text-anchor="end" fill="#14b8a6" font-family="monospace" font-size="7">G10 SIM RX ★</text>
+      <!-- Right labels (new) -->
+      <text x="183" y="24" fill="#6ee7b7" font-family="monospace" font-size="7">GND</text>
+      <text x="183" y="36" fill="#fde68a" font-family="monospace" font-size="7">3V3</text>
+      <text x="183" y="48" fill="#fb7185" font-family="monospace" font-size="7">G11 PWRKEY ★</text>
+      <text x="183" y="60" fill="#94a3b8" font-family="monospace" font-size="7">NC</text>
+      <text x="183" y="72" fill="#94a3b8" font-family="monospace" font-size="7">MTMS</text>
+      <text x="183" y="84" fill="#94a3b8" font-family="monospace" font-size="7">MTDI</text>
+      <text x="183" y="96" fill="#94a3b8" font-family="monospace" font-size="7">MTCK</text>
+      <text x="183" y="108" fill="#94a3b8" font-family="monospace" font-size="7">MTDO</text>
+      <text x="183" y="120" fill="#fb7185" font-family="monospace" font-size="7">G18 STATUS ★</text>
+      <text x="183" y="132" fill="#94a3b8" font-family="monospace" font-size="7">NC</text>
+      <text x="183" y="144" fill="#fbbf24" font-family="monospace" font-size="7">G21 TXD</text>
+    </g>
+
+    <!-- ★ NEW PINS LABEL -->
+    <text x="456" y="218" fill="#14b8a6" font-family="monospace" font-size="7">★ pines nuevos v2</text>
+
+    <!-- ══════════════════════════════════════════════
+         SIM7080G-M2M (right side, new in v2)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(655,280)">
+      <!-- NEW badge -->
+      <rect x="55" y="-14" width="36" height="12" rx="3" fill="#14b8a6"/>
+      <text x="73" y="-5" text-anchor="middle" fill="#fff" font-family="monospace" font-size="8" font-weight="bold">NEW v2</text>
+      <!-- Module body -->
+      <rect x="0" y="0" width="100" height="100" rx="4" fill="#0f172a" stroke="#14b8a6" stroke-width="2"/>
+      <rect x="5" y="5" width="90" height="90" rx="3" fill="#1e293b" stroke="#0e7490" stroke-width="1"/>
+      <!-- Internal chip -->
+      <rect x="20" y="20" width="60" height="60" rx="2" fill="#0c1a2e" stroke="#1e3a5f" stroke-width="1"/>
+      <!-- Antenna area -->
+      <rect x="5" y="82" width="90" height="13" rx="2" fill="#0f172a" stroke="#14b8a6" stroke-width="1" stroke-dasharray="4,2"/>
+      <path d="M40,88 L50,82 L60,88 M34,91 L50,82 L66,91" stroke="#2dd4bf" stroke-width="1.5" fill="none"/>
+      <text x="50" y="45" text-anchor="middle" fill="#2dd4bf" font-family="monospace" font-size="11" font-weight="bold">SIM7080G</text>
+      <text x="50" y="58" text-anchor="middle" fill="#0891b2" font-family="monospace" font-size="8">LTE-M · NB-IoT</text>
+      <text x="50" y="68" text-anchor="middle" fill="#0891b2" font-family="monospace" font-size="7">GNSS integrado</text>
+      <text x="50" y="78" text-anchor="middle" fill="#0891b2" font-family="monospace" font-size="7">LCSC C2836714</text>
+      <!-- LCC pads (56-pin, simplified) -->
+      <rect x="0" y="8" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="16" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="24" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="32" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="40" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="48" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="56" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="0" y="64" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="8" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="16" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="24" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="32" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="40" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="48" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="56" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <rect x="95" y="64" width="5" height="4" rx="1" fill="#ca8a04"/>
+      <!-- Labels left -->
+      <text x="-4" y="13" text-anchor="end" fill="#ea580c" font-family="monospace" font-size="6">VBAT</text>
+      <text x="-4" y="21" text-anchor="end" fill="#6ee7b7" font-family="monospace" font-size="6">GND</text>
+      <text x="-4" y="29" text-anchor="end" fill="#14b8a6" font-family="monospace" font-size="6">TXD</text>
+      <text x="-4" y="37" text-anchor="end" fill="#14b8a6" font-family="monospace" font-size="6">RXD</text>
+      <text x="-4" y="45" text-anchor="end" fill="#fb7185" font-family="monospace" font-size="6">PWRKEY</text>
+      <text x="-4" y="53" text-anchor="end" fill="#fb7185" font-family="monospace" font-size="6">STATUS</text>
+      <text x="-4" y="61" text-anchor="end" fill="#94a3b8" font-family="monospace" font-size="6">NETLIGHT</text>
+      <!-- Labels right -->
+      <text x="105" y="13" fill="#2dd4bf" font-family="monospace" font-size="6">SIM_VDD</text>
+      <text x="105" y="21" fill="#2dd4bf" font-family="monospace" font-size="6">SIM_DATA</text>
+      <text x="105" y="29" fill="#2dd4bf" font-family="monospace" font-size="6">SIM_CLK</text>
+      <text x="105" y="37" fill="#2dd4bf" font-family="monospace" font-size="6">SIM_RST</text>
+      <text x="105" y="45" fill="#2dd4bf" font-family="monospace" font-size="6">SIM_DET</text>
+      <text x="105" y="53" fill="#a78bfa" font-family="monospace" font-size="6">ANT_MAIN</text>
+      <text x="50" y="118" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">~$8.00 USD</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         AMS1117-3.8V LDO (new, right of main LDO)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(590,475)">
+      <!-- NEW badge -->
+      <rect x="3" y="-13" width="36" height="11" rx="3" fill="#14b8a6"/>
+      <text x="21" y="-5" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7" font-weight="bold">NEW</text>
+      <rect x="0" y="0" width="62" height="34" rx="3" fill="#451a03" stroke="#ea580c" stroke-width="1.5"/>
+      <rect x="3" y="3" width="56" height="28" rx="2" fill="#350d00" stroke="#c2410c" stroke-width="1"/>
+      <text x="31" y="16" text-anchor="middle" fill="#fb923c" font-family="monospace" font-size="9" font-weight="bold">AMS1117</text>
+      <text x="31" y="27" text-anchor="middle" fill="#ea580c" font-family="monospace" font-size="8">3.8V LDO</text>
+      <rect x="-6" y="5" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-6" y="15" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-6" y="25" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="60" y="10" width="8" height="14" rx="1" fill="#ca8a04"/>
+      <text x="31" y="48" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C347980 · ~$0.15</text>
+    </g>
+
+    <!-- 470µF bulk cap (new) -->
+    <g transform="translate(562,475)">
+      <rect x="-13" y="-13" width="30" height="13" rx="2" fill="#14b8a6" opacity="0.8"/>
+      <text x="2" y="-4" text-anchor="middle" fill="#fff" font-family="monospace" font-size="6">NEW</text>
+      <rect x="0" y="0" width="22" height="34" rx="2" fill="#292524" stroke="#ea580c" stroke-width="1.5"/>
+      <text x="11" y="14" text-anchor="middle" fill="#fb923c" font-family="monospace" font-size="7">470</text>
+      <text x="11" y="24" text-anchor="middle" fill="#fb923c" font-family="monospace" font-size="6">µF</text>
+      <text x="11" y="48" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">C11</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         NANO-SIM HOLDER (right edge, new)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(718,350)">
+      <!-- NEW badge -->
+      <rect x="5" y="-13" width="36" height="11" rx="3" fill="#14b8a6"/>
+      <text x="23" y="-5" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7" font-weight="bold">NEW</text>
+      <!-- SIM holder body -->
+      <rect x="0" y="0" width="72" height="55" rx="4" fill="#1c1917" stroke="#2dd4bf" stroke-width="1.5"/>
+      <rect x="5" y="5" width="62" height="45" rx="3" fill="#111" stroke="#14b8a6" stroke-width="1"/>
+      <!-- SIM card slot -->
+      <rect x="8" y="8" width="56" height="39" rx="8" fill="#0c0c0c" stroke="#374151" stroke-width="1" stroke-dasharray="4,2"/>
+      <!-- SIM chip contacts -->
+      <rect x="14" y="14" width="14" height="10" rx="1" fill="#ca8a04" opacity="0.6"/>
+      <rect x="32" y="14" width="14" height="10" rx="1" fill="#ca8a04" opacity="0.6"/>
+      <rect x="14" y="28" width="14" height="10" rx="1" fill="#ca8a04" opacity="0.6"/>
+      <rect x="32" y="28" width="14" height="10" rx="1" fill="#ca8a04" opacity="0.6"/>
+      <text x="36" y="70" text-anchor="middle" fill="#2dd4bf" font-family="monospace" font-size="9" font-weight="bold">nano-SIM</text>
+      <text x="36" y="81" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C2840571 · ~$0.30</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         USB-C CONNECTOR (bottom center, same)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(350,548)">
+      <rect x="0" y="0" width="100" height="44" rx="10" fill="#78716c" stroke="#a8a29e" stroke-width="1.5"/>
+      <rect x="7" y="7" width="86" height="30" rx="8" fill="#292524" stroke="#57534e" stroke-width="1"/>
+      <ellipse cx="50" cy="22" rx="22" ry="10" fill="#1c1917" stroke="#44403c" stroke-width="1"/>
+      <text x="50" y="58" text-anchor="middle" fill="#d1d5db" font-family="monospace" font-size="10" font-weight="bold">USB-C  5V</text>
+      <text x="50" y="70" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8">GCT USB4105 · C2765186</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         AMS1117-3.3V LDO (same as v1)
+         ══════════════════════════════════════════════ -->
+    <g transform="translate(150,478)">
+      <rect x="0" y="0" width="62" height="34" rx="3" fill="#451a03" stroke="#92400e" stroke-width="1.5"/>
+      <rect x="3" y="3" width="56" height="28" rx="2" fill="#350d00" stroke="#6b2a00" stroke-width="1"/>
+      <text x="31" y="15" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="9" font-weight="bold">AMS1117</text>
+      <text x="31" y="26" text-anchor="middle" fill="#d97706" font-family="monospace" font-size="8">3.3V WiFi</text>
+      <rect x="-6" y="5" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-6" y="15" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="-6" y="25" width="8" height="6" rx="1" fill="#ca8a04"/>
+      <rect x="60" y="10" width="8" height="14" rx="1" fill="#ca8a04"/>
+      <text x="31" y="48" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C6186 · ~$0.15</text>
+    </g>
+
+    <!-- ══════════════════════════════════════════════
+         SENSOR BLOCKS (same positions as v1)
+         ══════════════════════════════════════════════ -->
+    <!-- SHT31 top-left -->
+    <g transform="translate(100,42)">
+      <rect x="0" y="0" width="80" height="72" rx="3" fill="#0c2a3a" stroke="#0e7490" stroke-width="1.5"/>
+      <text x="40" y="32" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">SHT31</text>
+      <text x="40" y="45" text-anchor="middle" fill="#0ea5e9" font-family="monospace" font-size="8">Temp/Hum I2C</text>
+      <text x="40" y="58" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">C2943854</text>
+      <text x="40" y="82" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">0x44 · ±0.3°C</text>
+    </g>
+
+    <!-- BH1750 top-right -->
+    <g transform="translate(520,42)">
+      <rect x="0" y="0" width="80" height="72" rx="3" fill="#1c1a05" stroke="#854d0e" stroke-width="1.5"/>
+      <text x="40" y="32" text-anchor="middle" fill="#eab308" font-family="monospace" font-size="11" font-weight="bold">BH1750</text>
+      <text x="40" y="45" text-anchor="middle" fill="#ca8a04" font-family="monospace" font-size="8">Luz/Lux I2C</text>
+      <text x="40" y="58" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">C78960</text>
+      <text x="40" y="82" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">0x23 · 1-65535 lux</text>
+    </g>
+
+    <!-- ICS-43434 left -->
+    <g transform="translate(38,275)">
+      <circle cx="22" cy="42" r="16" fill="#050a05" stroke="#15803d" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <circle cx="22" cy="42" r="6" fill="#000" stroke="#166534" stroke-width="1"/>
+      <rect x="46" y="22" width="52" height="42" rx="2" fill="#1e0a2e" stroke="#7e22ce" stroke-width="1.5"/>
+      <text x="72" y="38" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="9" font-weight="bold">ICS-43434</text>
+      <text x="72" y="50" text-anchor="middle" fill="#9333ea" font-family="monospace" font-size="8">MEMS Mic I2S</text>
+      <text x="72" y="75" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">C2069979 ~$1.50</text>
+    </g>
+
+    <!-- MQ-2 pads right (shifted right for SIM7080G space) -->
+    <g transform="translate(620,268)">
+      <rect x="0" y="0" width="90" height="76" rx="4" fill="#1a0a00" stroke="#78350f" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <circle cx="45" cy="38" r="22" fill="#1c0d00" stroke="#92400e" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <rect x="6" y="10" width="16" height="10" rx="2" fill="#ca8a04"/>
+      <rect x="68" y="10" width="16" height="10" rx="2" fill="#ca8a04"/>
+      <rect x="6" y="56" width="16" height="10" rx="2" fill="#ca8a04"/>
+      <rect x="68" y="56" width="16" height="10" rx="2" fill="#ca8a04"/>
+      <text x="45" y="35" text-anchor="middle" fill="#f97316" font-family="monospace" font-size="10" font-weight="bold">MQ-2</text>
+      <text x="45" y="46" text-anchor="middle" fill="#c2410c" font-family="monospace" font-size="8">Gas ADC</text>
+      <text x="45" y="92" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="7">Bare chip ~$1.20</text>
+    </g>
+
+    <!-- JST PPD42 top center -->
+    <g transform="translate(312,28)">
+      <rect x="0" y="0" width="104" height="40" rx="3" fill="#1a1a00" stroke="#6b6b00" stroke-width="1.5"/>
+      <circle cx="12" cy="20" r="5" fill="#ca8a04"/>
+      <circle cx="31" cy="20" r="5" fill="#ca8a04"/>
+      <circle cx="50" cy="20" r="5" fill="#ca8a04"/>
+      <circle cx="69" cy="20" r="5" fill="#ca8a04"/>
+      <circle cx="88" cy="20" r="5" fill="#ca8a04"/>
+      <text x="52" y="52" text-anchor="middle" fill="#a3a302" font-family="monospace" font-size="9" font-weight="bold">JST PH-5 → PPD42</text>
+      <text x="52" y="63" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="8">C157926 · cable ext.</text>
+    </g>
+
+    <!-- RESET button -->
+    <g transform="translate(90,530)">
+      <rect x="0" y="0" width="38" height="38" rx="4" fill="#1c1c1c" stroke="#4b5563" stroke-width="1.5"/>
+      <circle cx="19" cy="19" r="12" fill="#111" stroke="#dc2626" stroke-width="2"/>
+      <circle cx="19" cy="19" r="6" fill="#dc2626"/>
+      <text x="19" y="48" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="9" font-weight="bold">RESET</text>
+    </g>
+
+    <!-- BOOT button -->
+    <g transform="translate(674,530)">
+      <rect x="0" y="0" width="38" height="38" rx="4" fill="#1c1c1c" stroke="#4b5563" stroke-width="1.5"/>
+      <circle cx="19" cy="19" r="12" fill="#111" stroke="#4f46e5" stroke-width="2"/>
+      <circle cx="19" cy="19" r="6" fill="#4f46e5"/>
+      <text x="19" y="48" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="9" font-weight="bold">BOOT</text>
+    </g>
+
+    <!-- LED NETLIGHT blue (new) -->
+    <g transform="translate(762,280)">
+      <rect x="-10" y="-12" width="30" height="11" rx="2" fill="#14b8a6"/>
+      <text x="5" y="-4" text-anchor="middle" fill="#fff" font-family="monospace" font-size="6" font-weight="bold">NEW</text>
+      <polygon points="0,0 0,12 14,6" fill="#1e3a8a" stroke="#2563eb" stroke-width="1.5"/>
+      <line x1="14" y1="0" x2="14" y2="12" stroke="#2563eb" stroke-width="2"/>
+      <circle cx="20" cy="6" r="5" fill="#3b82f6" opacity="0.9"/>
+      <circle cx="20" cy="6" r="8" fill="#3b82f6" opacity="0.2"/>
+      <text x="7" y="22" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="7">NETLIGHT D2</text>
+    </g>
+
+    <!-- UART DEBUG header right edge -->
+    <g transform="translate(748,207)">
+      <rect x="0" y="0" width="32" height="58" rx="2" fill="#0f0f2a" stroke="#312e81" stroke-width="1.5"/>
+      <circle cx="16" cy="11" r="5" fill="#ca8a04"/>
+      <circle cx="16" cy="25" r="5" fill="#ca8a04"/>
+      <circle cx="16" cy="39" r="5" fill="#ca8a04"/>
+      <circle cx="16" cy="53" r="5" fill="#ca8a04"/>
+      <text x="-4" y="14" text-anchor="end" fill="#fde68a" font-family="monospace" font-size="7">3V3</text>
+      <text x="-4" y="28" text-anchor="end" fill="#6ee7b7" font-family="monospace" font-size="7">GND</text>
+      <text x="-4" y="42" text-anchor="end" fill="#fbbf24" font-family="monospace" font-size="7">TX</text>
+      <text x="-4" y="56" text-anchor="end" fill="#fbbf24" font-family="monospace" font-size="7">RX</text>
+      <text x="50" y="29" text-anchor="middle" fill="#818cf8" font-family="monospace" font-size="8" transform="rotate(90,50,29)">UART</text>
+    </g>
+
+    <!-- ── RAIL LABELS ── -->
+    <text x="177" y="205" fill="#d97706" font-family="monospace" font-size="9" font-weight="bold">+3V3 ─────────────────── WiFi path</text>
+    <text x="620" y="335" fill="#ea580c" font-family="monospace" font-size="9" font-weight="bold">+3V8 LTE-M path</text>
+
+    <!-- ── DIMENSION ANNOTATIONS ── -->
+    <line x1="0" y1="-13" x2="800" y2="-13" stroke="#4b5563" stroke-width="1"/>
+    <line x1="0" y1="-18" x2="0" y2="-8" stroke="#4b5563" stroke-width="1"/>
+    <line x1="800" y1="-18" x2="800" y2="-8" stroke="#4b5563" stroke-width="1"/>
+    <text x="400" y="-17" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">80 mm  (+10mm vs v1)</text>
+    <line x1="-13" y1="0" x2="-13" y2="600" stroke="#4b5563" stroke-width="1"/>
+    <line x1="-18" y1="0" x2="-8" y2="0" stroke="#4b5563" stroke-width="1"/>
+    <line x1="-18" y1="600" x2="-8" y2="600" stroke="#4b5563" stroke-width="1"/>
+    <text x="-22" y="300" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11" transform="rotate(-90,-22,300)">60 mm  (+5mm vs v1)</text>
+
+  </g>
+
+  <!-- LEGEND -->
+  <g transform="translate(28,666)">
+    <text x="0" y="0" fill="#9ca3af" font-family="monospace" font-size="9" font-weight="bold">Trazas:</text>
+    <line x1="60" y1="-4" x2="90" y2="-4" stroke="#d97706" stroke-width="3"/>
+    <text x="94" y="0" fill="#d97706" font-family="monospace" font-size="9">+3V3</text>
+    <line x1="130" y1="-4" x2="160" y2="-4" stroke="#ea580c" stroke-width="3"/>
+    <text x="164" y="0" fill="#ea580c" font-family="monospace" font-size="9">+3V8</text>
+    <line x1="200" y1="-4" x2="230" y2="-4" stroke="#dc2626" stroke-width="3.5"/>
+    <text x="234" y="0" fill="#dc2626" font-family="monospace" font-size="9">+5V</text>
+    <line x1="264" y1="-4" x2="294" y2="-4" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="298" y="0" fill="#22d3ee" font-family="monospace" font-size="9">I2C</text>
+    <line x1="330" y1="-4" x2="360" y2="-4" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="364" y="0" fill="#a855f7" font-family="monospace" font-size="9">I2S</text>
+    <line x1="396" y1="-4" x2="426" y2="-4" stroke="#fb923c" stroke-width="1.5"/>
+    <text x="430" y="0" fill="#fb923c" font-family="monospace" font-size="9">ADC</text>
+    <line x1="464" y1="-4" x2="494" y2="-4" stroke="#14b8a6" stroke-width="2"/>
+    <text x="498" y="0" fill="#14b8a6" font-family="monospace" font-size="9">★ SIM UART/CTRL</text>
+    <line x1="624" y1="-4" x2="654" y2="-4" stroke="#2dd4bf" stroke-width="1.5"/>
+    <text x="658" y="0" fill="#2dd4bf" font-family="monospace" font-size="9">SIM data</text>
+    <line x1="730" y1="-4" x2="760" y2="-4" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="764" y="0" fill="#fbbf24" font-family="monospace" font-size="9">UART</text>
+  </g>
+
+</svg>

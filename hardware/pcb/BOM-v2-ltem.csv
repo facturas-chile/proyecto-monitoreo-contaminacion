@@ -1,0 +1,51 @@
+Ref,Componente,Valor,Footprint,LCSC_Part,Descripcion,Precio_Unit_USD,Qty_10u_USD,Qty_50u_USD,Qty_100u_USD
+,,,,,,,,
+== COMPONENTES BASE (mismos que v1) ==,,,,,,,,
+U2,ESP32-C3-MINI-1,N/A,RF_Module:ESP32-C3-MINI-1,C2838502,MCU WiFi integrado,1.80,18.00,15.00,13.50
+U3,SHT31-DIS,N/A,Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm,C2943854,Temp/Hum I2C,2.00,20.00,16.00,13.00
+U4,BH1750FVI,N/A,Package_SO:SOP-8_3.76x4.94mm_P1.27mm,C78960,Luz lux I2C,0.35,3.50,2.80,2.30
+U5,ICS-43434,N/A,Package_LCC:ICS-43434_LGA-5,C2069979,Microfono MEMS I2S,1.50,15.00,11.50,9.50
+U1,AMS1117-3.3,N/A,Package_TO_SOT_SMD:SOT-223-3_TabPin2,C6186,LDO 3.3V 800mA,0.15,1.50,1.10,0.90
+J1,GCT_USB4105-GF-A,N/A,Connector_USB:USB_C_Receptacle_GCT_USB4105,C2765186,USB-C 2.0,0.40,4.00,3.20,2.80
+J2,JST_PH_B5B-PH-K,N/A,Connector_JST:JST_PH_B5B-PH-K_1x05_P2.00mm,C157926,JST PH 5-pin PPD42,0.25,2.50,1.80,1.40
+J3,PinHeader_1x04,N/A,PinHeader_2.54mm:PinHeader_1x04,C2337,Header UART debug,0.10,1.00,0.70,0.55
+J4,PinHeader_1x04,N/A,PinHeader_2.54mm:PinHeader_1x04,C2337,Header MQ-2 pads,0.10,1.00,0.70,0.55
+SW1,SW_Push,N/A,Button_Switch_SMD:SW_Push_1P1T_NO_2.5x1.6mm,C318884,Boton RESET,0.05,0.50,0.35,0.28
+SW2,SW_Push,N/A,Button_Switch_SMD:SW_Push_1P1T_NO_2.5x1.6mm,C318884,Boton BOOT,0.05,0.50,0.35,0.28
+D1,LED_GREEN_0402,N/A,LED_SMD:LED_0402_1005Metric,C72041,LED verde power,0.02,0.20,0.14,0.11
+C1-C4,C_LDO_Bypass,10uF+100nF x2,Mixed,Mixed,Caps bypass LDO 3.3V,0.08,0.80,0.58,0.46
+C5-C7,C_ESP32_Bypass,10uF+100nF x2,Mixed,Mixed,Caps bypass ESP32,0.05,0.50,0.36,0.28
+C8-C10,C_Sensor_Bypass,100nF x3,C_0402,C1525,Caps bypass sensores,0.03,0.30,0.21,0.17
+R1-R2,R_0402,5.1k x2,R_0402,C25905,Pull-down CC USB-C,0.02,0.20,0.14,0.11
+R3,R_0402,1k,R_0402,C11702,R serie LED power,0.01,0.10,0.07,0.05
+R4-R5,R_0402,10k x2,R_0402,C25744,Pull-up EN + BOOT,0.02,0.20,0.14,0.11
+R6-R7,R_0402,4.7k x2,R_0402,C25900,Pull-up I2C,0.02,0.20,0.14,0.11
+R8-R11,R_0402,Mixed x4,R_0402,Mixed,R MQ-2 + PPD42,0.04,0.40,0.28,0.22
+,,,,,,,,
+== COMPONENTES NUEVOS v2 LTE-M ==,,,,,,,,
+U6,SIM7080G-M2M,N/A,RF_Module:SIM7080G_LCC56_8x8mm,C2836714,Modulo LTE-M + NB-IoT + GNSS,8.00,80.00,60.00,50.00
+U7,AMS1117-3.8,N/A,Package_TO_SOT_SMD:SOT-223-3_TabPin2,C347980,LDO 3.8V para celular (VBAT),0.15,1.50,1.10,0.90
+J5,Nano_SIM_Holder,N/A,Connector_Card:SIM_Wuerth_693071010811,C2840571,Nano-SIM holder con detection pin,0.30,3.00,2.20,1.80
+D2,LED_BLUE_0402,N/A,LED_SMD:LED_0402_1005Metric,C72043,LED azul NETLIGHT estado red,0.02,0.20,0.14,0.11
+D3,PRTR5V0U2X,N/A,Package_TO_SOT_SMD:SOT-363_SC-70-6,C52495,ESD array lineas SIM (TVS),0.20,2.00,1.50,1.20
+C11,C_1210,470uF/6.3V,Capacitor_SMD:C_1210_3225Metric,C13585,Bulk cap picos TX celular,0.10,1.00,0.75,0.60
+C12,C_0402,100nF,Capacitor_SMD:C_0402_1005Metric,C1525,Bypass entrada LDO 3.8V,0.01,0.10,0.07,0.05
+C13,C_0805,10uF,Capacitor_SMD:C_0805_2012Metric,C15850,Bypass salida LDO 3.8V,0.03,0.30,0.22,0.18
+R12,R_0402,10k,Resistor_SMD:R_0402_1005Metric,C25744,R PWRKEY (ESP32→SIM7080G),0.01,0.10,0.07,0.05
+R13,R_0402,470R,Resistor_SMD:R_0402_1005Metric,C25905,R serie LED NETLIGHT,0.01,0.10,0.07,0.05
+,,,,,,,,
+== COMPONENTES EXTERNOS (sin cambios) ==,,,,,,,,
+PPD42_MOD,Sensor polvo PPD42,N/A,N/A,N/A,Modulo externo PM10 (Shinyei),8.00,80.00,60.00,50.00
+MQ2_CHIP,MQ-2 bare chip,N/A,N/A,N/A,Sensor gas (soldar a pads J4),1.20,12.00,9.50,8.00
+SIM_PLAN,Plan datos IoT,N/A,N/A,N/A,1NCE o Hologram NB-IoT/LTE-M,0.40/mes,4.00,3.00,2.40
+,,,,,,,,
+== PCB ==,,,,,,,,
+PCB_FAB,JLCPCB 2 capas FR4,80x60mm,N/A,N/A,PCB v2 (mas grande por SIM7080G),1.20,12.00,5.50,3.80
+,,,,,,,,
+== RESUMEN COSTOS v2 vs v1 ==,,,,,,,,
+TOTAL_V1,Sistema v1 WiFi-only,,,,USD/nodo,17.25,172.50,129.00,107.00
+TOTAL_DELTA_LTEM,Componentes adicionales LTE-M,,,,USD/nodo extra,+8.77,+87.70,+65.50,+54.50
+TOTAL_V2,Sistema v2 WiFi + LTE-M,,,,USD/nodo,26.02,260.20,194.50,161.50
+TOTAL_ANTERIOR,Sistema actual (Arduino + modulos),,,,USD/nodo,~$80-100,,,
+AHORRO_V2,Ahorro v2 vs sistema actual,,,,Ahorro estimado,~71-74%,,,
+NOTA,Costo v2 supera objetivo $15-25 por ~$1,,,,Considerar LTE-M solo en nodos campo,,,,
